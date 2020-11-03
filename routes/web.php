@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//modeles 
+Route::get('modeles','ModelesController@index');
+Route::get('modeles/create','ModelesController@create');
+Route::post('modeles','ModelesController@store');
+Route::get('modeles/edit/{Modele}','ModelesController@edit');
+Route::put('modeles/{Modele}','ModelesController@update');
+Route::post('modeles/destroy/{Modele}','ModelesController@destroy');
