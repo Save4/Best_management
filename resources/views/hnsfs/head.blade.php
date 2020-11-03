@@ -8,14 +8,14 @@
     <title>Best management </title>
 
     <!-- Bootstrap -->
-    <link href="{{ asset('css_js/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{ asset('css_js/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="{{ asset('css_js/nprogress/nprogress.css')}}" rel="stylesheet">
+    <link href="{{ asset('vendors/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- jQuery custom content scroller -->
-    <link href="{{ asset('css_js/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css')}}" rel="stylesheet"/>
+    <link href="{{ asset('vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css')}}" rel="stylesheet"/>
 
     <!-- Custom Theme Style -->
-    <link href="{{ asset('css_js/css/custom.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('build/css/custom.min.css')}}" rel="stylesheet">
   </head>
