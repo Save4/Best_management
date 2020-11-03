@@ -47,11 +47,7 @@
                               @enderror
   											</div>
   										</div>
-
-
-  										</div>
-  										<div class="ln_solid"></div>
-  										<div class="item form-group">
+                      <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
 
   												<button class="btn btn-primary" type="reset">Reset</button>
@@ -59,95 +55,41 @@
   											</div>
   										</div>
 
+
+  										</div>
+  										<div class="ln_solid"></div>
+
+
   									</form>
   								</div>
   							</div>
   						</div>
-  					</div>
 
+              <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Liste des modeles</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
 
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                    <p class="text-muted font-13 m-b-30">
 
-
-
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Modele</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Modele</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Modele <small> Add</small></h3>
-              </div>
-
-
-    <!--/.row--><div class="card-body">
-
-              <div class="row">
-                <div class="col-md-6">
-                    <form role="form" action="{{url('modeles')}}" method="POST">
-                        @csrf
-
-                        <div class="form-group">
-                            <label>Modele :</label>
-                            <input type="text" name="nom_modele" class="form-control" class="@error('nom_modele') is-invalid @enderror"
-                                   placeholder="Entre le modele" value="">
-                            @error('nom_modele')
-                            <button class="btn-danger">{{$message}}</button>
-                            @enderror
-                        </div>
-                </div>
-                <div class="col-md-6">
-
-                        <div class="form-group">
-                            <label>Temp :</label>
-                            <input type="date" name="temp_actuel" class="form-control" class="@error('temp_actuel') is-invalid @enderror"
-                                   placeholder="Entre le temp_actuel du chauffeur" value="">
-                            @error('temp_actuel')
-                            <button class="btn-danger">{{$message}}</button>
-                            @enderror
-                        </div>
-                      </div>
-                </div>
-
-              </div>
-                <div class="card-footer">
-
-
-                        <button type="submit" id="submit" class="btn btn-primary">Save</button>
-                        <button type="reset" class="btn btn-default">Reset</button>
-                    </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-
-       <div class="card justify-content-center">
-              <div class="card-header">
-                <h3 class="card-title"><strong>Modeles des vehicule</strong></h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body col-md-8">
-                <table id="tb1" class="table table-bordered table-striped"style="font-size:12px;font-family:'Times New Roman'">
-                    <thead>
+                    </p>
+                    <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+                      <thead>
                     <tr>
                         <th>ID</th>
                         <th>Modele</th>
@@ -157,19 +99,16 @@
 
                     </tr>
                     </thead>
-                    <tbody>
+
+
+                      <tbody>
                     @foreach($modeles as $Modele)
                     <tr>
                         <td>{{$Modele->id}}</td>
                         <td>{{$Modele->nom_modele}}</td>
                         <td>{{$Modele->temp_actuel}}</td>
-
-                      <!--  <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a> -->
-
-                         <td>
-                            <a href="modeles/edit/{{$Modele->id}}" class="btn btn-info btn"><i class="fas fa-pencil-alt">
+                        <td>
+                            <a href="modeles/edit/{{$Modele->id}}" class="btn btn-info btn"><i class="fas fa-edit(alias)">
                               </i>Edit</a>
                         </td>
                         <td>
@@ -184,23 +123,23 @@
 
                     </tr>
                         @endforeach
-                    </tbody>
 
-                </table>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
-              <!-- /.card-body -->
-            </div>
-
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
 
 
-  <!-- /.control-sidebar -->
-</div>
-</div>
 
 
+
+
+<
+                      <!--  <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a> -->
+
+                        
 
 @endsection()
