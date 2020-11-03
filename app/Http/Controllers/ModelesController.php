@@ -1,85 +1,60 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Modele;
 use Illuminate\Http\Request;
 
-class ModelesController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+class ModelesController extends Controller{
+  function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index(){
+        $modeles = Modele::paginate(5);
+        return view('modeles/index',[
+            'modeles' => $modeles
+        ]);
+    }
+    public function create(){
+        return view('modeles/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  public function store(Request $request)
+  {
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Modele  $modele
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Modele $modele)
-    {
-        //
-    }
+     //validation
+     $request->validate([
+         'nom_modele' =>'required',
+         'temp_actuel' =>'required'
+            ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Modele  $modele
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Modele $modele)
-    {
-        //
-    }
+     $Modele= new Modele();
+     $Modele->nom_modele= $request->nom_modele;
+     $Modele->temp_actuel= $request->temp_actuel;
+     $Modele->save();
+     return redirect('modeles');
+}
+  //dependance injection
+  public function edit(Modele $Modele)
+  {
+      $Modele=Modele::find($Modele->id);
+      return view('modeles/edit',[
+        'Modele' => $Modele]);
+  }
+  public function update(Request $request,Modele $Modele)
+  {
+      $Modele->nom_modele=$request->nom_modele;
+      $Modele->temp_actuel=$request->temp_actuel;
+      $Modele->save();
+      return redirect('modeles');
+  }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Modele  $modele
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Modele $modele)
-    {
-        //
-    }
+  public function destroy(Modele $Modele)
+  {
+      $Modele=Modele::find($Modele->id);
+      $Modele->delete();
+      return redirect('modeles');
+  }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Modele  $modele
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Modele $modele)
-    {
-        //
-    }
+
 }
