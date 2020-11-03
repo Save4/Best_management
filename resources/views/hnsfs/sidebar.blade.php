@@ -8,7 +8,8 @@
                   </li>
                   <li><a><i class="fa fa-car"></i> Vehicule <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{url('modeles')}}">Marques et modeles</a></li>
+                      <li><a href="{{url('marques')}}">Marques</a></li>
+                      <li><a href="{{url('modeles')}}">Modeles</a></li>
                       <li><a href="{{url('vehicules')}}">Vehicules</a></li>
 
                     </ul>
