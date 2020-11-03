@@ -14,8 +14,10 @@ class CreateModelesTable extends Migration
     public function up()
     {
         Schema::create('modeles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+          $table->bigIncrements('id');
+         $table->string('nom_modele');
+         $table->date('temp_actuel');
+         $table->timestamps();
         });
     }
 
