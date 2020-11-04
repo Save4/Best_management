@@ -110,7 +110,7 @@
                         <td>{{$Modele->temp_actuel}}</td>
                         <td>
                             <a href="modeles/show/{{$Modele->id}}" class="btn btn-success"><i class="fas fa-edit(alias)">
-                              </i>Edit</a>
+                            </i>Show</a>
                         </td>
                         <td>
                             <a href="modeles/edit/{{$Modele->id}}" class="btn btn-info"><i class="fas fa-edit(alias)">
