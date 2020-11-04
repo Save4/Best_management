@@ -65,37 +65,39 @@
   							</div>
   						</div>
 
+
+
               <div class="col-md-12 col-sm-12 ">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Liste des modeles</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                              <div class="x_panel">
+                                <div class="x_title">
+                                  <h2>Liste des modeles</small></h2>
+                                  <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
 
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                      <div class="row">
-                          <div class="col-sm-12">
-                            <div class="card-box table-responsive">
-                    <p class="text-muted font-13 m-b-30">
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                  </ul>
+                                  <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                          <div class="card-box table-responsive">
 
-                    </p>
-                    <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+                                  <table id="datatable-fixed-header" class="table table-striped table-bordered" style="width:100%">
+
                       <thead>
                     <tr>
                         <th>ID</th>
                         <th>Modele</th>
                         <th>Temp</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
+                        <th>Show</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
 
                     </tr>
                     </thead>
@@ -108,14 +110,18 @@
                         <td>{{$Modele->nom_modele}}</td>
                         <td>{{$Modele->temp_actuel}}</td>
                         <td>
-                            <a href="modeles/edit/{{$Modele->id}}" class="btn btn-info btn"><i class="fas fa-edit(alias)">
+                            <a href="modeles/show/{{$Modele->id}}" class="btn btn-success"><i class="fas fa-edit(alias)">
+                            </i>Show</a>
+                        </td>
+                        <td>
+                            <a href="modeles/edit/{{$Modele->id}}" class="btn btn-info"><i class="fas fa-edit(alias)">
                               </i>Edit</a>
                         </td>
                         <td>
 
                           <form action="modeles/destroy/{{$Modele->id}}" method="post" class="form-inline">
                           @csrf
-                           <button type="submit" onclick="return confirm('Supprimer?')" class="btn btn-danger btn"><i class="fas fa-trash">
+                           <button type="submit" onclick="return confirm('Supprimer?')" class="btn btn-danger"><i class="fas fa-trash">
                               </i>delete</button>
                          </form>
 
