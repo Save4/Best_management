@@ -94,8 +94,9 @@
                         <th>ID</th>
                         <th>Modele</th>
                         <th>Temp</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
+                        <th>Show</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
 
                     </tr>
                     </thead>
@@ -108,14 +109,18 @@
                         <td>{{$Modele->nom_modele}}</td>
                         <td>{{$Modele->temp_actuel}}</td>
                         <td>
-                            <a href="modeles/edit/{{$Modele->id}}" class="btn btn-info btn"><i class="fas fa-edit(alias)">
+                            <a href="modeles/show/{{$Modele->id}}" class="btn btn-success"><i class="fas fa-edit(alias)">
+                              </i>Edit</a>
+                        </td>
+                        <td>
+                            <a href="modeles/edit/{{$Modele->id}}" class="btn btn-info"><i class="fas fa-edit(alias)">
                               </i>Edit</a>
                         </td>
                         <td>
 
                           <form action="modeles/destroy/{{$Modele->id}}" method="post" class="form-inline">
                           @csrf
-                           <button type="submit" onclick="return confirm('Supprimer?')" class="btn btn-danger btn"><i class="fas fa-trash">
+                           <button type="submit" onclick="return confirm('Supprimer?')" class="btn btn-danger"><i class="fas fa-trash">
                               </i>delete</button>
                          </form>
 
