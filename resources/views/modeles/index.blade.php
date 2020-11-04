@@ -94,7 +94,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Modele</th>
-                        <th>Temp</th>
+                        <th>Date d'enregistrement</th>
                         <th>Show</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -110,19 +110,16 @@
                         <td>{{$Modele->nom_modele}}</td>
                         <td>{{$Modele->temp_actuel}}</td>
                         <td>
-                            <a href="modeles/show/{{$Modele->id}}" class="btn btn-success"><i class="fas fa-edit(alias)">
-                            </i>Show</a>
-                        </td>
+                      <button>      <a href="modeles/show/{{$Modele->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Show"><i class="fa fa-eye"></i></a>
+                      </button></td>
                         <td>
-                            <a href="modeles/edit/{{$Modele->id}}" class="btn btn-info"><i class="fas fa-edit(alias)">
-                              </i>Edit</a>
-                        </td>
+                          <button>  <a href="modeles/edit/{{$Modele->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                        </button></td>
                         <td>
 
                           <form action="modeles/destroy/{{$Modele->id}}" method="post" class="form-inline">
                           @csrf
-                           <button type="submit" onclick="return confirm('Supprimer?')" class="btn btn-danger"><i class="fas fa-trash">
-                              </i>delete</button>
+                           <button type="submit" onclick="return confirm('Supprimer?')" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                          </form>
 
                         </td>
@@ -139,15 +136,6 @@
           </div>
             </div>
 
-
-
-
-
-
-<
-                      <!--  <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a> -->
 
 
 
