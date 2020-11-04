@@ -29,7 +29,7 @@
         <tr>
             <th>ID</th>
             <th>Modele</th>
-            <th>Temp</th>
+            <th>Date d'enregistrement</th>
 
 
         </tr>
@@ -43,7 +43,7 @@
             <td>{{$Modele->nom_modele}}</td>
             <td>{{$Modele->temp_actuel}}</td>
 
-          
+
 
         </tr>
             @endforeach
