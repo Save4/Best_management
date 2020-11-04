@@ -129,6 +129,9 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+            </div>
 
 
 
@@ -140,6 +143,6 @@
                             <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a> -->
 
-                        
+
 
 @endsection()
