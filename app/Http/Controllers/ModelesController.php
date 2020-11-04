@@ -15,6 +15,8 @@ class ModelesController extends Controller{
             'modeles' => $modeles
         ]);
     }
+
+
     public function create(){
         return view('modeles/create');
     }
@@ -41,6 +43,13 @@ class ModelesController extends Controller{
       return view('modeles/edit',[
         'Modele' => $Modele]);
   }
+  public function show(Modele $Modele)
+  {
+    return view('modeles/show',[
+        'modeles' => $modeles
+    ]);
+  }
+
   public function update(Request $request,Modele $Modele)
   {
       $Modele->nom_modele=$request->nom_modele;
