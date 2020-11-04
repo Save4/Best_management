@@ -43,10 +43,10 @@ class ModelesController extends Controller{
       return view('modeles/edit',[
         'Modele' => $Modele]);
   }
-  public function show(Modele $Modele)
+  public function show($id)
   {
     return view('modeles/show',[
-        'modeles' => $modeles
+        'modeles' => Modele::findOrFail($id)
     ]);
   }
 
