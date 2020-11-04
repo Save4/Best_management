@@ -10,11 +10,12 @@ class ModelesController extends Controller{
     }
 
     public function index(){
-        $modeles = Modele::paginate(5);
+        $modeles = Modele::all();
         return view('modeles/index',[
             'modeles' => $modeles
         ]);
     }
+
 
 
     public function create(){
@@ -43,12 +44,14 @@ class ModelesController extends Controller{
       return view('modeles/edit',[
         'Modele' => $Modele]);
   }
-  public function show($id)
+  public function show()
   {
+      $modeles = Modele::all();
     return view('modeles/show',[
-        'modeles' => Modele::findOrFail($id)
+        'modeles' => $modeles
     ]);
   }
+
 
   public function update(Request $request,Modele $Modele)
   {
