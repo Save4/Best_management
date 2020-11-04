@@ -94,7 +94,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Modele</th>
-                        <th>Temp</th>
+                        <th>Date d'enregistrement</th>
                         <th>Show</th>
                         <th>Edit</th>
                         <th>Delete</th>
