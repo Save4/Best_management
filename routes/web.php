@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//modeles 
+//modeles
 Route::get('modeles','ModelesController@index');
 Route::get('modeles/create','ModelesController@create');
 Route::post('modeles','ModelesController@store');
