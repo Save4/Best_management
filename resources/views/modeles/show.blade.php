@@ -28,8 +28,8 @@
           <thead>
         <tr>
             <th>ID</th>
+            <th>Marque</th>
             <th>Modele</th>
-            <th>Date d'enregistrement</th>
 
 
         </tr>
@@ -40,8 +40,8 @@
         @foreach($modeles as $Modele)
         <tr>
             <td>{{$Modele->id}}</td>
+            <td>{{$Modele->nom_marque}}</td>
             <td>{{$Modele->nom_modele}}</td>
-            <td>{{$Modele->temp_actuel}}</td>
 
 
 
