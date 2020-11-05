@@ -1,85 +1,72 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Marque;
 use Illuminate\Http\Request;
 
-class MarquesController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+class MarquesController extends Controller{
+  function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index(){
+        $marques = Marque::all();
+        return view('marques/index',[
+            'marques' => $marques
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+
+    public function create(){
+        return view('marques/create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Marque  $marque
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Marque $marque)
-    {
-        //
-    }
+  public function store(Request $request)
+  {
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Marque  $marque
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Marque $marque)
-    {
-        //
-    }
+     //validation
+     $request->validate([
+         'nom_marque' =>'required',
+         'temp_actuel' =>'required'
+            ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Marque  $marque
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Marque $marque)
-    {
-        //
-    }
+     $Marque= new Marque();
+     $Marque->nom_marque= $request->nom_marque;
+     $Marque->temp_actuel= $request->temp_actuel;
+     $Marque->save();
+     return redirect('marques');
+}
+  //dependance injection
+  public function edit(Marque $Marque)
+  {
+      $Marque=Marque::find($Marque->id);
+      return view('marques/edit',[
+        'Marque' => $Marque]);
+  }
+  public function show()
+  {
+      $marques = Marque::all();
+    return view('marques/show',[
+        'marques' => $marques
+    ]);
+  }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Marque  $marque
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Marque $marque)
-    {
-        //
-    }
+
+  public function update(Request $request,Marque $Marque)
+  {
+      $Marque->nom_marque=$request->nom_marque;
+      $Marque->temp_actuel=$request->temp_actuel;
+      $Marque->save();
+      return redirect('marques');
+  }
+
+  public function destroy(Marque $Marque)
+  {
+      $Marque=Marque::find($Marque->id);
+      $Marque->delete();
+      return redirect('marques');
+  }
+
+
 }
