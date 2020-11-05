@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use App\Modele;
 use App\Marque;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ModelesController extends Controller{
   function __construct()
