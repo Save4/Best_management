@@ -27,7 +27,7 @@
                                              @csrf
 
                     <div class="form-group row">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align ">Selectionne la marque :</label>
+                    <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="marque_id" id="" class="form-control" class="@error('marque_id') is-invalid @enderror">
                                    @foreach($marques as $Marque)
@@ -98,7 +98,7 @@
                       <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Selectionne la marque</th>
+                        <th>Marque</th>
                         <th>Modele</th>
                         <th>Show</th>
                         <th>Edit</th>
