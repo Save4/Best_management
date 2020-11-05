@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Modele;
+use App\Marque;
 use Illuminate\Http\Request;
 
 class ModelesController extends Controller{
@@ -91,7 +92,7 @@ public function create()
       $Modele->save();
       return redirect('modeles');
   }
-  
+
   public function destroy(Modele $Modele)
   {
       $Modele=Modele::find($Modele->id);
