@@ -63,7 +63,7 @@ public function create()
       $Modele=Modele::find($Modele->id);
       return view('modeles/edit',[
         'Modele' => $Modele,
-        'Marque' => $Marque
+        'marques' => $marques
       ]);
   }
   public function show()
