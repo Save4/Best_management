@@ -25,6 +25,22 @@
   									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('modeles')}}" method="POST">
 
                                              @csrf
+
+                    <div class="form-group row">
+                    <label class="control-label col-md-3 col-sm-3 ">Selectionne la marque :</label>
+                      <div class="col-md-9 col-sm-9 ">
+                      <select name="marque_id" id="" class="form-control" class="@error('marque_id') is-invalid @enderror">
+
+
+                                           @foreach($marques as $Marque)
+                                          <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
+                                            @endforeach
+                                 </select>
+                                            @error('modele_id')
+                             <button class="btn-danger">{{$message}}</button>
+                                            @enderror
+                         </div>
+                         </div>
   										<div class="item form-group">
   											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du modele <span class="required">*</span>
   											</label>
@@ -37,21 +53,12 @@
   											</div>
   										</div>
 
-  										<div class="item form-group">
-  											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Date d'enregistrement</label>
-  											<div class="col-md-6 col-sm-6 ">
-  												<input name="temp_actuel" id="middle-name" class="form-control" type="date" name="middle-name" class="@error('temp_actuel') is-invalid @enderror"
-                                     placeholder="Entre le temps d'enregistrement du modele" value="">
-                                     @error('temp_actuel')
-                              <button class="btn-danger">{{$message}}</button>
-                              @enderror
-  											</div>
-  										</div>
+
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
 
-  												<button class="btn btn-primary" type="reset">Reset</button>
-  												<button type="submit" id="submit" class="btn btn-success">Save</button>
+  												<button class="btn btn-round btn-primary btn-xs" type="reset">Reset</button>
+  												<button type="submit" id="submit" class="btn btn-round btn-success btn-xs">Save</button>
   											</div>
   										</div>
 
@@ -65,37 +72,39 @@
   							</div>
   						</div>
 
+
+
               <div class="col-md-12 col-sm-12 ">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Liste des modeles</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                              <div class="x_panel">
+                                <div class="x_title">
+                                  <h2>Liste des modeles</small></h2>
+                                  <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
 
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                      <div class="row">
-                          <div class="col-sm-12">
-                            <div class="card-box table-responsive">
-                    <p class="text-muted font-13 m-b-30">
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                  </ul>
+                                  <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                          <div class="card-box table-responsive">
 
-                    </p>
-                    <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+                                  <table id="datatable-fixed-header" class="table table-striped table-bordered" style="width:100%">
+
                       <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Selectionne la marque</th>
                         <th>Modele</th>
-                        <th>Temp</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
+                        <th>Show</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
 
                     </tr>
                     </thead>
@@ -105,18 +114,19 @@
                     @foreach($modeles as $Modele)
                     <tr>
                         <td>{{$Modele->id}}</td>
+                        <td>{{$Modele->marque_id}}</td>
                         <td>{{$Modele->nom_modele}}</td>
-                        <td>{{$Modele->temp_actuel}}</td>
                         <td>
-                            <a href="modeles/edit/{{$Modele->id}}" class="btn btn-info btn"><i class="fas fa-edit(alias)">
-                              </i>Edit</a>
-                        </td>
+                      <button>      <a href="modeles/show/{{$Modele->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Show"><i class="fa fa-eye"></i></a>
+                      </button></td>
+                        <td>
+                          <button>  <a href="modeles/edit/{{$Modele->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                        </button></td>
                         <td>
 
                           <form action="modeles/destroy/{{$Modele->id}}" method="post" class="form-inline">
                           @csrf
-                           <button type="submit" onclick="return confirm('Supprimer?')" class="btn btn-danger btn"><i class="fas fa-trash">
-                              </i>delete</button>
+                           <button type="submit" onclick="return confirm('Supprimer?')" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                          </form>
 
                         </td>
@@ -133,15 +143,6 @@
           </div>
             </div>
 
-
-
-
-
-
-<
-                      <!--  <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a> -->
 
 
 

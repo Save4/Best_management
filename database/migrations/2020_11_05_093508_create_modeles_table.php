@@ -15,9 +15,14 @@ class CreateModelesTable extends Migration
     {
         Schema::create('modeles', function (Blueprint $table) {
           $table->bigIncrements('id');
+          $table->unsignedBigInteger('marque_id');
          $table->string('nom_modele');
-         $table->date('temp_actuel');
          $table->timestamps();
+         $table->foreign('marque_id')
+                   ->references('id')
+                   ->on('marques')
+                   ->onUpdate('cascade')
+                   ->onDelete('cascade');
         });
     }
 

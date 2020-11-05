@@ -26,6 +26,7 @@ Route::get('modeles','ModelesController@index');
 Route::get('modeles/create','ModelesController@create');
 Route::post('modeles','ModelesController@store');
 Route::get('modeles/edit/{Modele}','ModelesController@edit');
+Route::get('modeles/show/{Modele}','ModelesController@show');
 Route::put('modeles/{Modele}','ModelesController@update');
 Route::post('modeles/destroy/{Modele}','ModelesController@destroy');
 
