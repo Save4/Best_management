@@ -28,12 +28,12 @@ class MarquesController extends Controller{
      //validation
      $request->validate([
          'nom_marque' =>'required',
-         'temp_actuel' =>'required'
+
             ]);
 
      $Marque= new Marque();
      $Marque->nom_marque= $request->nom_marque;
-     $Marque->temp_actuel= $request->temp_actuel;
+
      $Marque->save();
      return redirect('marques');
 }
@@ -56,7 +56,7 @@ class MarquesController extends Controller{
   public function update(Request $request,Marque $Marque)
   {
       $Marque->nom_marque=$request->nom_marque;
-      $Marque->temp_actuel=$request->temp_actuel;
+    
       $Marque->save();
       return redirect('marques');
   }
