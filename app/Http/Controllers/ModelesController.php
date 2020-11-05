@@ -49,8 +49,7 @@ public function create()
 
             ]);
 
-            $marques = Marque::all();
-     
+     $marques = Marque::all();
      $Modele= new Modele();
      $Modele->marque_id= $request->marque_id;
      $Modele->nom_modele= $request->nom_modele;
