@@ -14,8 +14,15 @@ class CreateModelesTable extends Migration
     public function up()
     {
         Schema::create('modeles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+          $table->bigIncrements('id');
+          $table->unsignedBigInteger('marque_id');
+         $table->string('nom_modele');
+         $table->timestamps();
+         $table->foreign('marque_id')
+                   ->references('id')
+                   ->on('marques')
+                   ->onUpdate('cascade')
+                   ->onDelete('cascade');
         });
     }
 
