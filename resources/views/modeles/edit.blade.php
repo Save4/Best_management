@@ -25,6 +25,19 @@
 
                       @csrf
                       @method('PUT')
+                      <div class="form-group row">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Selectionne la marque :</label>
+                        <div class="col-md-6 col-sm-6 ">
+                        <select name="marque_id" id="" class="form-control" class="@error('marque_id') is-invalid @enderror">
+                                     @foreach($marques as $Marque)
+                                            <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
+                                              @endforeach
+                                   </select>
+                                              @error('modele_id')
+                               <button class="btn-danger">{{$message}}</button>
+                                              @enderror
+                           </div>
+                           </div>
   										<div class="item form-group">
   											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du modele <span class="required">*</span>
   											</label>
@@ -37,16 +50,7 @@
   											</div>
   										</div>
 
-  										<div class="item form-group">
-  											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Date d'enregistrement</label>
-  											<div class="col-md-6 col-sm-6 ">
-  												<input name="temp_actuel" id="middle-name" class="form-control" type="date" name="middle-name"   class="@error('temp_actuel') is-invalid @enderror" placeholder=""
-                            value="{{ $Modele->temp_actuel }}">
-                        @error('temp_actuel')
-                        <button class="btn-danger">{{ $message }}</button>
-                        @enderror
-  											</div>
-  										</div>
+  									
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
 
