@@ -27,12 +27,10 @@
                                              @csrf
 
                     <div class="form-group row">
-                    <label class="control-label col-md-3 col-sm-3 ">Selectionne la marque :</label>
-                      <div class="col-md-9 col-sm-9 ">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
+                      <div class="col-md-6 col-sm-6 ">
                       <select name="marque_id" id="" class="form-control" class="@error('marque_id') is-invalid @enderror">
-
-
-                                           @foreach($marques as $Marque)
+                                   @foreach($marques as $Marque)
                                           <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
                                             @endforeach
                                  </select>
@@ -42,7 +40,7 @@
                          </div>
                          </div>
   										<div class="item form-group">
-  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du modele <span class="required">*</span>
+  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du modele :<span class="required">*</span>
   											</label>
   											<div class="col-md-6 col-sm-6 ">
   												<input type="text" name="nom_modele" id="first-name" required="required" class="form-control " class="@error('nom_modele') is-invalid @enderror"
@@ -100,7 +98,7 @@
                       <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Selectionne la marque</th>
+                        <th>Marque</th>
                         <th>Modele</th>
                         <th>Show</th>
                         <th>Edit</th>
@@ -114,7 +112,7 @@
                     @foreach($modeles as $Modele)
                     <tr>
                         <td>{{$Modele->id}}</td>
-                        <td>{{$Modele->marque_id}}</td>
+                        <td>{{$Modele->nom_marque}}</td>
                         <td>{{$Modele->nom_modele}}</td>
                         <td>
                       <button>      <a href="modeles/show/{{$Modele->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Show"><i class="fa fa-eye"></i></a>
