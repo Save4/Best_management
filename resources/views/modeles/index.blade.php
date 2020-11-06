@@ -25,8 +25,22 @@
   									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('modeles')}}" method="POST">
 
                                              @csrf
+
+                    <div class="form-group row">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
+                      <div class="col-md-6 col-sm-6 ">
+                      <select name="marque_id" id="" class="form-control" class="@error('marque_id') is-invalid @enderror">
+                                   @foreach($marques as $Marque)
+                                          <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
+                                            @endforeach
+                                 </select>
+                                            @error('modele_id')
+                             <button class="btn-danger">{{$message}}</button>
+                                            @enderror
+                         </div>
+                         </div>
   										<div class="item form-group">
-  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du modele <span class="required">*</span>
+  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du modele :<span class="required">*</span>
   											</label>
   											<div class="col-md-6 col-sm-6 ">
   												<input type="text" name="nom_modele" id="first-name" required="required" class="form-control " class="@error('nom_modele') is-invalid @enderror"
@@ -37,16 +51,7 @@
   											</div>
   										</div>
 
-  										<div class="item form-group">
-  											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Date d'enregistrement</label>
-  											<div class="col-md-6 col-sm-6 ">
-  												<input name="temp_actuel" id="middle-name" class="form-control" type="date" name="middle-name" class="@error('temp_actuel') is-invalid @enderror"
-                                     placeholder="Entre le temps d'enregistrement du modele" value="">
-                                     @error('temp_actuel')
-                              <button class="btn-danger">{{$message}}</button>
-                              @enderror
-  											</div>
-  										</div>
+
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
 
@@ -93,8 +98,8 @@
                       <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Marque</th>
                         <th>Modele</th>
-                        <th>Date d'enregistrement</th>
                         <th>Show</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -107,8 +112,8 @@
                     @foreach($modeles as $Modele)
                     <tr>
                         <td>{{$Modele->id}}</td>
+                        <td>{{$Modele->nom_marque}}</td>
                         <td>{{$Modele->nom_modele}}</td>
-                        <td>{{$Modele->temp_actuel}}</td>
                         <td>
                       <button>      <a href="modeles/show/{{$Modele->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Show"><i class="fa fa-eye"></i></a>
                       </button></td>

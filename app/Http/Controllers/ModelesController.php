@@ -1,7 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 use App\Modele;
+use App\Marque;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ModelesController extends Controller{
   function __construct()
@@ -9,54 +12,85 @@ class ModelesController extends Controller{
         $this->middleware('auth');
     }
 
-    public function index(){
-        $modeles = Modele::all();
-        return view('modeles/index',[
-            'modeles' => $modeles
+  public function index()
+{
+    $modeles= DB::table('modeles')
+           ->join('marques', 'modeles.marque_id', 'marques.id')
+           ->select('marques.*','modeles.*')
+           ->get();
+
+    $marques = Marque::all();
+
+  return view('modeles/index',[
+
+    'modeles'=> $modeles,
+    'marques'=>$marques
+  ]);
+
+}
+public function create()
+{
+
+     $marques = Marque::all();
+     return view('modeles/create',[
+
+        'marques'=>$marques
         ]);
-    }
+}
 
-
-
-    public function create(){
-        return view('modeles/create');
-    }
 
   public function store(Request $request)
   {
 
      //validation
      $request->validate([
+         'marque_id' =>'required',
          'nom_modele' =>'required',
-         'temp_actuel' =>'required'
+
             ]);
 
+     $marques = Marque::all();
      $Modele= new Modele();
+     $Modele->marque_id= $request->marque_id;
      $Modele->nom_modele= $request->nom_modele;
-     $Modele->temp_actuel= $request->temp_actuel;
      $Modele->save();
      return redirect('modeles');
 }
   //dependance injection
   public function edit(Modele $Modele)
   {
+      $marques= Marque::all();
       $Modele=Modele::find($Modele->id);
       return view('modeles/edit',[
-        'Modele' => $Modele]);
+        'Modele' => $Modele,
+        'marques' => $marques
+      ]);
   }
   public function show()
   {
-      $modeles = Modele::all();
+    $modeles= DB::table('modeles')
+           ->join('marques', 'modeles.marque_id', 'marques.id')
+           ->select('marques.*','modeles.*')
+           ->get();
+
+    $marques = Marque::all();
     return view('modeles/show',[
-        'modeles' => $modeles
+
+      'modeles'=> $modeles,
+      'marques'=>$marques
     ]);
   }
 
 
   public function update(Request $request,Modele $Modele)
   {
+    $request->validate([
+       'marque_id' =>'required',
+        'nom_modele'=>'required',
+
+   ]);
+      $Modele->marque_id=$request->marque_id;
       $Modele->nom_modele=$request->nom_modele;
-      $Modele->temp_actuel=$request->temp_actuel;
       $Modele->save();
       return redirect('modeles');
   }
