@@ -1,85 +1,72 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Categorie;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+class CategoriesController extends Controller{
+  function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index(){
+        $categories = Categorie::all();
+        return view('categories/index',[
+            'categories' => $categories
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+
+    public function create(){
+        return view('categories/create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Categorie  $categorie
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Categorie $categorie)
-    {
-        //
-    }
+  public function store(Request $request)
+  {
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Categorie  $categorie
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Categorie $categorie)
-    {
-        //
-    }
+     //validation
+     $request->validate([
+         'nom_categorie' =>'required',
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Categorie  $categorie
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Categorie $categorie)
-    {
-        //
-    }
+            ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Categorie  $categorie
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Categorie $categorie)
-    {
-        //
-    }
+     $Categorie= new Categorie();
+     $Categorie->nom_categorie= $request->nom_categorie;
+
+     $Categorie->save();
+     return redirect('categories');
+}
+  //dependance injection
+  public function edit(Categorie $CateCategorie
+  {
+      $Categorie=Categorie::find($Categorie->id);
+      return view('categories/edit',[
+        'Categorie' => $Categorie]);
+  }
+  public function show()
+  {
+      $categories = Categorie::all();
+    return view('categories/show',[
+        'categories' => $categories
+    ]);
+  }
+
+
+  public function update(Request $request,Categorie $Categorie)
+  {
+      $Categorie->nom_categorie=$request->nom_categorie;
+
+      $Categorie->save();
+      return redirect('categories');
+  }
+
+  public function destroy(Categorie $Categorie)
+  {
+      $Categorie=Categorie::find($Categorie->id);
+      $Categorie->delete();
+      return redirect('categories');
+  }
+
+
 }
