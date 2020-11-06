@@ -10,6 +10,7 @@
                     <ul class="nav child_menu">
                       <li><a href="{{url('marques')}}">Marques</a></li>
                       <li><a href="{{url('modeles')}}">Modeles</a></li>
+                      <li><a href="{{url('Categories')}}">Categories</a></li>
                       <li><a href="{{url('vehicules')}}">Vehicules</a></li>
 
                     </ul>
@@ -24,7 +25,7 @@
                   <li><a><i class="fa fa-users"></i>Chauffeur <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('chauffeurs')}}">Chauffeurs</a></li>
-                      <li><a href="{{url('chauffeur_vehicules')}}">Chauffeur par vehicule</a></li>
+                      <li><a href="{{url('missions')}}">Mission</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -35,6 +36,7 @@
                   <li><a><i class="fa fa-edit"></i> Consommation <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e{{url('type_consommations')}}">Type de Consommation</a></li>
+                      <li><a href="e{{url('fournisseurs')}}">Fournisseur</a></li>
                       <li><a href="{{url('consommations')}}">Divers consommation</a></li>
                       <li><a href="{{url('assurences')}}">Impot et assurence</a></li>
 
