@@ -38,3 +38,12 @@ Route::get('marques/edit/{Marque}','MarquesController@edit');
 Route::get('marques/show/{Modele}','MarquesController@show');
 Route::put('marques/{Marque}','MarquesController@update');
 Route::post('marques/destroy/{Marque}','MarquesController@destroy');
+
+//modeles
+Route::get('categories','CategoriesController@index');
+Route::get('categories/create','CategoriesController@create');
+Route::post('categories','CategoriesController@store');
+Route::get('categories/edit/{Categorie}','CategoriesController@edit');
+Route::get('categories/show/{Categorie}','CategoriesController@show');
+Route::put('categories/{Categorie}','CategoriesController@update');
+Route::post('categories/destroy/{Categorie}','CategoriesController@destroy');
