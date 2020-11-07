@@ -10,7 +10,7 @@
                     <ul class="nav child_menu">
                       <li><a href="{{url('marques')}}">Marques</a></li>
                       <li><a href="{{url('modeles')}}">Modeles</a></li>
-                      <li><a href="{{url('Categories')}}">Categories</a></li>
+                      <li><a href="{{url('categories')}}">Categories</a></li>
                       <li><a href="{{url('vehicules')}}">Vehicules</a></li>
 
                     </ul>
