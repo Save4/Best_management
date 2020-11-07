@@ -97,7 +97,7 @@
                     @foreach($categories as $Categorie)
                     <tr>
                         <td>{{$Categorie->id}}</td>
-                        <td>{{$Categorie->nom_marque}}</td>
+                        <td>{{$Categorie->nom_categorie}}</td>
                         <td>
                       <button>      <a href="categories/show/{{$Categorie->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Show"><i class="fa fa-eye"></i></a>
                       </button></td>
