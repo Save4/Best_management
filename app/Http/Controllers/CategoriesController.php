@@ -38,7 +38,7 @@ class CategoriesController extends Controller{
      return redirect('categories');
 }
   //dependance injection
-  public function edit(Categorie $CateCategorie)
+  public function edit(Categorie $Categorie)
   {
       $Categorie=Categorie::find($Categorie->id);
       return view('categories/edit',[
