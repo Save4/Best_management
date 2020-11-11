@@ -26,8 +26,7 @@
 
                                              @csrf
   										<div class="item form-group">
-  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du marque <span class="required">*</span>
-  											</label>
+  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Marque: </label>
   											<div class="col-md-6 col-sm-6 ">
   												<input type="text" name="nom_marque" id="first-name" required="required" class="form-control " class="@error('nom_marque') is-invalid @enderror"
                                      placeholder="Entre le marque" value="">
@@ -41,8 +40,8 @@
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
 
+                          <button type="submit" id="submit" class="btn btn-round btn-success btn-xs">Save</button>
   												<button class="btn btn-round btn-primary btn-xs" type="reset">Reset</button>
-  												<button type="submit" id="submit" class="btn btn-round btn-success btn-xs">Save</button>
   											</div>
   										</div>
 
@@ -85,7 +84,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Marque</th>
-                        <th>Show</th>
                         <th>Edit</th>
                         <th>Delete</th>
 
