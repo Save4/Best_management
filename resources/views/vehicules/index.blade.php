@@ -188,7 +188,7 @@
                     </tr>
 
                         @endforeach
-                        <a href="{{url('vehicules/show/{Vehicule}')}}" class="btn btn-round btn-success btn-xs">Faire un document</a>
+                        <a href="{{url('vehicules/show/{Vehicule}')}}" class="btn btn-round btn-success btn-xs">Rapport</a>
 
                       </tbody>
                     </table>
