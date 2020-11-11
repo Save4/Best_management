@@ -100,7 +100,6 @@
                         <th>ID</th>
                         <th>Marque</th>
                         <th>Modele</th>
-                        <th>Show</th>
                         <th>Edit</th>
                         <th>Delete</th>
 
@@ -114,9 +113,7 @@
                         <td>{{$Modele->id}}</td>
                         <td>{{$Modele->nom_marque}}</td>
                         <td>{{$Modele->nom_modele}}</td>
-                        <td>
-                      <button>      <a href="modeles/show/{{$Modele->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Show"><i class="fa fa-eye"></i></a>
-                      </button></td>
+
                         <td>
                           <button>  <a href="modeles/edit/{{$Modele->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                         </button></td>
@@ -131,7 +128,7 @@
 
                     </tr>
                         @endforeach
-
+  <a href="{{url('modeles/show/{Modele}')}}" class="btn btn-round btn-success btn-xs">Rapport</a>
                       </tbody>
                     </table>
                   </div>
