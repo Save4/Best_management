@@ -7,7 +7,7 @@ use App\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ConsommationsController extends Controller
+class VehiculesController extends Controller
 {
     function __construct()
     {
@@ -18,7 +18,7 @@ class ConsommationsController extends Controller
 
     public function index()
 {
-    $consommations= DB::table('vehicules')
+    $vehicules= DB::table('vehicules')
            ->join('modeles', 'vehicules.modele_id', 'modeles.id')
            ->join('categories', 'vehicules.categorie_id', 'categories.id')
            ->select('modeles.*','categories.*','vehicules.*')
@@ -93,7 +93,7 @@ public function edit(Vehicule $Vehicule)
  }
  public function show()
 {
- $consommations= DB::table('vehicules')
+ $vehicules= DB::table('vehicules')
         ->join('modeles', 'vehicules.modele_id', 'modeles.id')
         ->join('categories', 'vehicules.categorie_id', 'categories.id')
         ->select('modeles.*','categories.*','vehicules.*')
