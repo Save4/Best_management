@@ -47,3 +47,13 @@ Route::get('categories/edit/{Categorie}','CategoriesController@edit');
 Route::get('categories/show/{Categorie}','CategoriesController@show');
 Route::put('categories/{Categorie}','CategoriesController@update');
 Route::post('categories/destroy/{Categorie}','CategoriesController@destroy');
+
+
+//vehicules
+Route::get('vehicules','VehiculesController@index');
+Route::get('vehicules/create','VehiculesController@create');
+Route::post('vehicules','VehiculesController@store');
+Route::get('vehicules/edit/{Vehicule}','VehiculesController@edit');
+Route::get('vehicules/show/{Vehicule}','VehiculesController@show');
+Route::put('vehicules/{Vehicule}','VehiculesController@update');
+Route::post('vehicules/destroy/{Vehicule}','VehiculesController@destroy');
