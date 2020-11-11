@@ -7,7 +7,7 @@
   						<div class="col-md-12 col-sm-12 ">
   							<div class="x_panel">
   								<div class="x_title">
-  									<h2>Add modele</small></h2>
+  									<h2>Add categorie</small></h2>
   									<ul class="nav navbar-right panel_toolbox">
   										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
   										</li>
@@ -22,30 +22,16 @@
   								</div>
   								<div class="x_content">
   									<br />
-  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('modeles')}}" method="POST">
+  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('categories')}}" method="POST">
 
                                              @csrf
-
-                    <div class="form-group row">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
-                      <div class="col-md-6 col-sm-6 ">
-                      <select name="marque_id" id="" class="form-control" class="@error('marque_id') is-invalid @enderror">
-                                   @foreach($marques as $Marque)
-                                          <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
-                                            @endforeach
-                                 </select>
-                                            @error('modele_id')
-                             <button class="btn-danger">{{$message}}</button>
-                                            @enderror
-                         </div>
-                         </div>
   										<div class="item form-group">
-  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du modele :<span class="required">*</span>
+  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Categorie <span class="required">*</span>
   											</label>
   											<div class="col-md-6 col-sm-6 ">
-  												<input type="text" name="nom_modele" id="first-name" required="required" class="form-control " class="@error('nom_modele') is-invalid @enderror"
-                                     placeholder="Entre le modele" value="">
-                                     @error('nom_modele')
+  												<input type="text" name="nom_categorie" id="first-name" required="required" class="form-control " class="@error('nom_categorie') is-invalid @enderror"
+                                     placeholder="Entre le categorie" value="">
+                                     @error('nom_categorie')
                               <button class="btn-danger">{{$message}}</button>
                               @enderror
   											</div>
@@ -75,7 +61,7 @@
               <div class="col-md-12 col-sm-12 ">
                               <div class="x_panel">
                                 <div class="x_title">
-                                  <h2>Liste des modeles</small></h2>
+                                  <h2>Liste des categories</small></h2>
                                   <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -98,8 +84,8 @@
                       <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Marque</th>
-                        <th>Modele</th>
+                        <th>Categorie</th>
+                        <th>Show</th>
                         <th>Edit</th>
                         <th>Delete</th>
 
@@ -108,18 +94,19 @@
 
 
                       <tbody>
-                    @foreach($modeles as $Modele)
+                    @foreach($categories as $Categorie)
                     <tr>
-                        <td>{{$Modele->id}}</td>
-                        <td>{{$Modele->nom_marque}}</td>
-                        <td>{{$Modele->nom_modele}}</td>
-
+                        <td>{{$Categorie->id}}</td>
+                        <td>{{$Categorie->nom_categorie}}</td>
                         <td>
-                          <button>  <a href="modeles/edit/{{$Modele->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                      <button>      <a href="categories/show/{{$Categorie->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Show"><i class="fa fa-eye"></i></a>
+                      </button></td>
+                        <td>
+                          <button>  <a href="categories/edit/{{$Categorie->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                         </button></td>
                         <td>
 
-                          <form action="modeles/destroy/{{$Modele->id}}" method="post" class="form-inline">
+                          <form action="categories/destroy/{{$Categorie->id}}" method="post" class="form-inline">
                           @csrf
                            <button type="submit" onclick="return confirm('Supprimer?')" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                          </form>
@@ -128,7 +115,7 @@
 
                     </tr>
                         @endforeach
-  <a href="{{url('modeles/show/{Modele}')}}" class="btn btn-round btn-success btn-xs">Rapport</a>
+
                       </tbody>
                     </table>
                   </div>
