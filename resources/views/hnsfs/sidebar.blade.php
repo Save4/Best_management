@@ -18,13 +18,14 @@
                   <li><a><i class="fa fa-university"></i>Departement <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('departements')}}">Departements</a></li>
-                      <li><a href="{{url('departement_vehicules')}}">vehicule par departement</a></li>
+
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-users"></i>Chauffeur <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-users"></i>Mission <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('chauffeurs')}}">Chauffeurs</a></li>
+                      <li><a href="{{url('fournisseurs')}}">Fournisseurs</a></li>
                       <li><a href="{{url('missions')}}">Mission</a></li>
                     </ul>
                   </li>
@@ -35,9 +36,9 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-edit"></i> Consommation <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="e{{url('type_consommations')}}">Type de Consommation</a></li>
-                      <li><a href="e{{url('fournisseurs')}}">Fournisseur</a></li>
-                      <li><a href="{{url('consommations')}}">Divers consommation</a></li>
+                      <li><a href="e{{url('reparations')}}">Reparation</a></li>
+                      <li><a href="e{{url('impot_taxe_assurences')}}">Fournisseur</a></li>
+                      <li><a href="{{url('carburents')}}">Carburent</a></li>
                       <li><a href="{{url('assurences')}}">Impot et assurence</a></li>
 
                     </ul>
