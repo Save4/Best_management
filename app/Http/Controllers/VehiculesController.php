@@ -79,11 +79,11 @@ public function edit(Vehicule $Vehicule)
 {
     # code...
     $modeles= Modele::all();
-    $Categories= Categorie::all();
+    $categories= Categorie::all();
     $Vehicule=Vehicule::find($Vehicule->id);
 
     return view('vehicules/edit',[
-        'vehicules'=>$vehicules,
+        'Vehicule'=>$Vehicule,
         'modeles'=> $modeles,
         'categories'=> $categories
 
