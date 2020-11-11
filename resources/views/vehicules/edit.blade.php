@@ -30,7 +30,7 @@
                       <div class="col-md-6 col-sm-6 ">
                       <select name="modele_id" id="" class="form-control" class="@error('modele_id') is-invalid @enderror">
                                    @foreach($modeles as $Modele)
-                                          <option value="{{$Modele->id}} {!! $Vehicule->modele_id==$Modele->id ? 'selected="selected"':''!!}">{{$Modele->nom_modele}}</option>
+                                          <option value="{{$Modele->id}}">{{$Modele->nom_modele}}</option>
                                             @endforeach
                        </select>
                                             @error('modele_id')
@@ -44,7 +44,7 @@
                              <div class="col-md-6 col-sm-6 ">
                              <select name="categorie_id" id="" class="form-control" class="@error('categorie_id') is-invalid @enderror">
                                           @foreach($categories as $Categorie)
-                                                 <option value="{{$Categorie->id}} {!! $Vehicule->categorie_id==$Categorie->id ? 'selected="selected"':''!!}">{{$Categorie->nom_categorie}}</option>
+                                                 <option value="{{$Categorie->id}}">{{$Categorie->nom_categorie}}</option>
                                                    @endforeach
                                         </select>
                                                    @error('categorie_id')
