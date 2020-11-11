@@ -1,85 +1,146 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Vehicule;
+use App\Modele;
+use App\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class VehiculesController extends Controller
+class ConsommationsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
     public function index()
-    {
-        //
-    }
+{
+    $consommations= DB::table('vehicules')
+           ->join('modeles', 'vehicules.modele_id', 'modeles.id')
+           ->join('categories', 'vehicules.categorie_id', 'categories.id')
+           ->select('modeles.*','categories.*','vehicules.*')
+           ->get();
+           $modeles = Modele::all();
+           $categories = Categorie::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+  return view('vehicules/index',[
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    'vehicules'=> $vehicules,
+    'modeles'=>$modeles,
+    'categories'=>$categories
+  ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Vehicule  $vehicule
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Vehicule $vehicule)
-    {
-        //
-    }
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Vehicule  $vehicule
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Vehicule $vehicule)
-    {
-        //
-    }
+public function create()
+{
+    $modeles = Modele::all();
+    $categories = Categorie::all();
+     return view('vehicules/create',[
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Vehicule  $vehicule
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Vehicule $vehicule)
-    {
-        //
-    }
+        'modeles'=>$modeles,
+        'categories'=>$categories
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Vehicule  $vehicule
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Vehicule $vehicule)
-    {
-        //
-    }
+
+
+     }
+
+public function store(Request $request)
+{
+
+     //validation
+     $request->validate([
+         'modele_id' =>'required',
+         'categorie_id' =>'required',
+         'plaque'=>'required',
+         'boite_vitesse' =>'required',
+         'type_moteur' =>'required',
+         'nombre_place' =>'required'
+
+     ]);
+
+     $Vehicule= new Vehicule();
+     $Vehicule->modele_id= $request->modele_id;
+     $Vehicule->categorie_id= $request->categorie_id;
+     $Vehicule->plaque= $request->plaque;
+     $Vehicule->boite_vitesse= $request->boite_vitesse;
+     $Vehicule->type_moteur= $request->type_moteur;
+     $Vehicule->nombre_place= $request->nombre_place;
+
+     $Vehicule->save();
+     return redirect('vehicules');
+}
+
+public function edit(Vehicule $Vehicule)
+{
+    # code...
+    $modeles= Modele::all();
+    $Categories= Categorie::all();
+    $Vehicule=Vehicule::find($Vehicule->id);
+
+    return view('vehicules/edit',[
+        'vehicules'=>$vehicules,
+        'modeles'=> $modeles,
+        'categories'=> $categories
+
+
+    ]);
+
+ }
+ public function show()
+{
+ $consommations= DB::table('vehicules')
+        ->join('modeles', 'vehicules.modele_id', 'modeles.id')
+        ->join('categories', 'vehicules.categorie_id', 'categories.id')
+        ->select('modeles.*','categories.*','vehicules.*')
+        ->get();
+        $modeles = Modele::all();
+        $categories = Categorie::all();
+
+return view('vehicules/show',[
+
+ 'vehicules'=> $vehicules,
+ 'modeles'=>$modeles,
+ 'categories'=>$categories
+]);
+
+}
+
+ public function update(Request $request, Vehicule $Vehicule)
+ {
+     # code...
+     $request->validate([
+        'modele_id' =>'required',
+        'categorie_id' =>'required',
+         'plaque'=>'required',
+         'boite_vitesse' =>'required',
+         'type_moteur' =>'required',
+         'nombre_place' =>'required'
+     ]);
+
+     $Vehicule->modele_id= $request->modele_id;
+     $Vehicule->categorie_id= $request->categorie_id;
+     $Vehicule->plaque= $request->plaque;
+     $Vehicule->boite_vitesse= $request->boite_vitesse;
+     $Vehicule->type_moteur= $request->type_moteur;
+     $Vehicule->nombre_place= $request->nombre_place;
+    $Vehicule->save();
+    return redirect('vehicules');
+
+ }
+
+ public function destroy(Vehicule $Vehicule)
+ {
+     # code...
+     $Vehicule= Vehicule::find($Vehicule->id);
+     $Vehicule->delete();
+     return redirect('vehicules');
+
+ }
+
+
 }
