@@ -26,7 +26,7 @@
                       @csrf
                       @method('PUT')
                       <div class="form-group row">
-                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Selectionne la marque :</label>
+                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
                         <div class="col-md-6 col-sm-6 ">
                         <select name="marque_id" id="" class="form-control" class="@error('marque_id') is-invalid @enderror">
                                      @foreach($marques as $Marque)
@@ -39,8 +39,7 @@
                            </div>
                            </div>
   										<div class="item form-group">
-  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du modele <span class="required">*</span>
-  											</label>
+  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Modele: </label>
   											<div class="col-md-6 col-sm-6 ">
   												<input type="text" name="nom_modele" id="first-name" required="required" class="form-control "class="@error('nom_modele') is-invalid @enderror" placeholder=""
                             value="{{ $Modele->nom_modele }}">
@@ -50,7 +49,7 @@
   											</div>
   										</div>
 
-  									
+
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
 
