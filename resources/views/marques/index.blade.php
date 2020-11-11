@@ -98,9 +98,7 @@
                     <tr>
                         <td>{{$Marque->id}}</td>
                         <td>{{$Marque->nom_marque}}</td>
-                        <td>
-                      <button>      <a href="marques/show/{{$Marque->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Show"><i class="fa fa-eye"></i></a>
-                      </button></td>
+                      
                         <td>
                           <button>  <a href="marques/edit/{{$Marque->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                         </button></td>
@@ -115,7 +113,7 @@
 
                     </tr>
                         @endforeach
-
+  <a href="{{url('marques/show/{Marque}')}}" class="btn btn-round btn-success btn-xs">Faire un document</a>
                       </tbody>
                     </table>
                   </div>
