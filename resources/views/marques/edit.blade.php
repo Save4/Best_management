@@ -26,8 +26,7 @@
                       @csrf
                       @method('PUT')
   										<div class="item form-group">
-  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du marque <span class="required">*</span>
-  											</label>
+  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom du marque: </label>
   											<div class="col-md-6 col-sm-6 ">
   												<input type="text" name="nom_marque" id="first-name" required="required" class="form-control "class="@error('nom_marque') is-invalid @enderror" placeholder=""
                             value="{{ $Marque->nom_marque }}">
@@ -37,7 +36,7 @@
   											</div>
   										</div>
 
-  									
+
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
 
