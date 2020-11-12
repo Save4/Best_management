@@ -57,3 +57,4 @@ Route::get('vehicules/edit/{Vehicule}','VehiculesController@edit');
 Route::get('vehicules/show/{Vehicule}','VehiculesController@show');
 Route::put('vehicules/{Vehicule}','VehiculesController@update');
 Route::post('vehicules/destroy/{Vehicule}','VehiculesController@destroy');
+Route::get('vehicules/chargeMarque', 'VehiculesController@chargeMarque');
