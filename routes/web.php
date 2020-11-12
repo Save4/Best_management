@@ -65,3 +65,12 @@ Route::get('departements/edit/{Departement}','DepartementsController@edit');
 Route::get('departements/show/{Departement}','DepartementsController@show');
 Route::put('departements/{Departement}','DepartementsController@update');
 Route::post('departements/destroy/{Departement}','DepartementsController@destroy');
+
+
+Route::get('chauffeurs','ChauffeursController@index');
+Route::get('chauffeurs/create','ChauffeursController@create');
+Route::post('chauffeurs','ChauffeursController@store');
+Route::get('chauffeurs/edit/{Chauffeur}','ChauffeursController@edit');
+Route::get('chauffeurs/show/{Chauffeur}','ChauffeursController@show');
+Route::put('chauffeurs/{Chauffeur}','ChauffeursController@update');
+Route::post('chauffeurs/destroy/{Chauffeur}','ChauffeursController@destroy');
