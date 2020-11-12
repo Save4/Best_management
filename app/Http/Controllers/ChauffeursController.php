@@ -1,85 +1,85 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Chauffeur;
 use Illuminate\Http\Request;
 
-class ChauffeursController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+class ChauffeursController extends Controller{
+  function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index(){
+        $chauffeurs = Chauffeur::all();
+        return view('chauffeurs/index',[
+            'chauffeurs' => $chauffeurs
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+
+    public function create(){
+        return view('chauffeurs/create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Chauffeur  $chauffeur
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Chauffeur $chauffeur)
-    {
-        //
-    }
+  public function store(Request $request)
+  {
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Chauffeur  $chauffeur
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Chauffeur $chauffeur)
-    {
-        //
-    }
+     //validation
+     $request->validate([
+       'nom' =>'required',
+       'prenom' =>'required',
+       'email' =>'required',
+       'telephone' =>'required',
+       'id_permis_conduire' =>'required',
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Chauffeur  $chauffeur
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Chauffeur $chauffeur)
-    {
-        //
-    }
+            ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Chauffeur  $chauffeur
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Chauffeur $chauffeur)
-    {
-        //
-    }
+     $Chauffeur= new Chauffeur();
+     $Chauffeur->nom= $request->nom;
+     $Chauffeur->prenom= $request->prenom;
+     $Chauffeur->email= $request->email;
+     $Chauffeur->telephone= $request->telephone;
+     $Chauffeur->id_permis_conduire= $request->id_permis_conduire;
+
+     $Chauffeur->save();
+     return redirect('chauffeurs');
+}
+  //dependance injection
+  public function edit(Chauffeur $Chauffeur)
+  {
+      $Chauffeur=Chauffeur::find($Chauffeur->id);
+      return view('chauffeurs/edit',[
+        'Chauffeur' => $Chauffeur]);
+  }
+  public function show()
+  {
+      $chauffeurs = Chauffeur::all();
+    return view('chauffeurs/show',[
+        'chauffeurs' => $chauffeurs
+    ]);
+  }
+
+
+  public function update(Request $request,Chauffeur $Chauffeur)
+  {
+
+    $Chauffeur->nom= $request->nom;
+    $Chauffeur->prenom= $request->prenom;
+    $Chauffeur->email= $request->email;
+    $Chauffeur->telephone= $request->telephone;
+    $Chauffeur->id_permis_conduire= $request->id_permis_conduire;
+
+      $Chauffeur->save();
+      return redirect('chauffeurs');
+  }
+
+  public function destroy(Chauffeur $Chauffeur)
+  {
+      $Chauffeur=Chauffeur::find($Chauffeur->id);
+      $Chauffeur->delete();
+      return redirect('chauffeurs');
+  }
+
+
 }
