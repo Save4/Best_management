@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Vehicule;
 use App\Modele;
+use App\Marque;
 use App\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,17 +20,20 @@ class VehiculesController extends Controller
     public function index()
 {
     $vehicules= DB::table('vehicules')
-           ->join('modeles', 'vehicules.modele_id', 'modeles.id')
            ->join('categories', 'vehicules.categorie_id', 'categories.id')
-           ->select('modeles.*','categories.*','vehicules.*')
+           ->join('modeles', 'vehicules.modele_id', 'modeles.id')
+           ->join('marques', 'modeles.marque_id', 'marques.id')
+           ->select('marques.*','modeles.*','categories.*','vehicules.*')
            ->get();
            $modeles = Modele::all();
+           $marques = Marque::all();
            $categories = Categorie::all();
 
   return view('vehicules/index',[
 
     'vehicules'=> $vehicules,
     'modeles'=>$modeles,
+    'marques'=>$marques,
     'categories'=>$categories
   ]);
 
@@ -38,9 +42,17 @@ class VehiculesController extends Controller
 public function create()
 {
     $modeles = Modele::all();
+    $marques = Marque::all();
     $categories = Categorie::all();
+    $vehicules= DB::table('vehicules')
+           ->join('categories', 'vehicules.categorie_id', 'categories.id')
+           ->join('modeles', 'vehicules.modele_id', 'modeles.id')
+           ->join('marques', 'modeles.marque_id', 'marques.id')
+           ->select('marques.*','modeles.*','categories.*','vehicules.*')
+           ->get();
      return view('vehicules/create',[
 
+       'marques'=>$marques,
         'modeles'=>$modeles,
         'categories'=>$categories
         ]);
@@ -96,7 +108,8 @@ public function edit(Vehicule $Vehicule)
  $vehicules= DB::table('vehicules')
         ->join('modeles', 'vehicules.modele_id', 'modeles.id')
         ->join('categories', 'vehicules.categorie_id', 'categories.id')
-        ->select('modeles.*','categories.*','vehicules.*')
+        ->join('marques', 'modeles.marque_id', 'marques.id')
+        ->select('marques.*','modeles.*','categories.*','vehicules.*')
         ->get();
         $modeles = Modele::all();
         $categories = Categorie::all();
@@ -141,6 +154,21 @@ return view('vehicules/show',[
      return redirect('vehicules');
 
  }
+
+ public function chargeMarque(Request $request)
+    {
+        if ($request->has('modele_id')) {
+            $modele_id = $request->get('modele_id');
+               $modeles = DB::table('provinces')
+                 ->join('marques', 'modeles.marque_id', 'marques.id')
+                 ->where('modeles.id', '=', $modele_id)
+                 ->get();
+        }
+        return view('vehicules/chargeMarque', [
+            'marques' => $marques
+
+        ]);
+    }
 
 
 }
