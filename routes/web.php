@@ -57,3 +57,11 @@ Route::get('vehicules/edit/{Vehicule}','VehiculesController@edit');
 Route::get('vehicules/show/{Vehicule}','VehiculesController@show');
 Route::put('vehicules/{Vehicule}','VehiculesController@update');
 Route::post('vehicules/destroy/{Vehicule}','VehiculesController@destroy');
+
+Route::get('departements','DepartementsController@index');
+Route::get('departements/create','DepartementsController@create');
+Route::post('departements','DepartementsController@store');
+Route::get('departements/edit/{Departement}','DepartementsController@edit');
+Route::get('departements/show/{Departement}','DepartementsController@show');
+Route::put('departements/{Departement}','DepartementsController@update');
+Route::post('departements/destroy/{Departement}','DepartementsController@destroy');
