@@ -30,3 +30,9 @@
    <script src="{{ asset('vendors/jszip/dist/jszip.min.js')}}"></script>
    <script src="{{ asset('vendors/pdfmake/build/pdfmake.min.js')}}"></script>
    <script src="{{ asset('vendors/pdfmake/build/vfs_fonts.js')}}"></script>
+
+   <script>
+            var route= "{{URL::to('/')}}";
+        </script>
+        <script src="{{asset('js/autoCharge.js')}}" type="text/javascript"></script>
+        <script>
