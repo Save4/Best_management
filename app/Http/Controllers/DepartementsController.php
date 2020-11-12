@@ -1,85 +1,72 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Departement;
 use Illuminate\Http\Request;
 
-class DepartementsController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+class DepartementsController extends Controller{
+  function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index(){
+        $departements = Departement::all();
+        return view('departements/index',[
+            'departements' => $departements
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+
+    public function create(){
+        return view('departements/create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Departement  $departement
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Departement $departement)
-    {
-        //
-    }
+  public function store(Request $request)
+  {
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Departement  $departement
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Departement $departement)
-    {
-        //
-    }
+     //validation
+     $request->validate([
+         'nom_departement' =>'required',
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Departement  $departement
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Departement $departement)
-    {
-        //
-    }
+            ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Departement  $departement
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Departement $departement)
-    {
-        //
-    }
+     $Departement= new Departement();
+     $Departement->nom_departement= $request->nom_departement;
+
+     $Departement->save();
+     return redirect('departements');
+}
+  //dependance injection
+  public function edit(Departement $Departement)
+  {
+      $Departement=Departement::find($Departement->id);
+      return view('departements/edit',[
+        'Departement' => $Departement]);
+  }
+  public function show()
+  {
+      $departements = Departement::all();
+    return view('departements/show',[
+        'departements' => $departements
+    ]);
+  }
+
+
+  public function update(Request $request,Departement $Departement)
+  {
+      $Departement->nom_departement=$request->nom_departement;
+
+      $Departement->save();
+      return redirect('departements');
+  }
+
+  public function destroy(Departement $Departement)
+  {
+      $Departement=Departement::find($Departement->id);
+      $Departement->delete();
+      return redirect('departement');
+  }
+
+
 }
