@@ -35,7 +35,7 @@ Route::get('marques','MarquesController@index');
 Route::get('marques/create','MarquesController@create');
 Route::post('marques','MarquesController@store');
 Route::get('marques/edit/{Marque}','MarquesController@edit');
-Route::get('marques/show/{Modele}','MarquesController@show');
+Route::get('marques/show/{Marque}','MarquesController@show');
 Route::put('marques/{Marque}','MarquesController@update');
 Route::post('marques/destroy/{Marque}','MarquesController@destroy');
 
