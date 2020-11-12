@@ -26,6 +26,23 @@
 
                                              @csrf
 
+                 <div class="form-group row">
+                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
+                      <div class="col-md-6 col-sm-6 ">
+                      <select name="modele_id" id="" class="form-control">
+
+       @foreach($marques as $Marque)
+       <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
+      @endforeach
+      @error('marque_id')
+
+      <div class="alert alert-danger">{{$message}}</div>
+      @enderror
+</select>
+
+                            </div>
+                        </div>
+
                     <div class="form-group row">
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Modele :</label>
                       <div class="col-md-6 col-sm-6 ">
@@ -150,6 +167,7 @@
                       <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Marque</th>
                         <th>Modele</th>
                         <th>Categorie</th>
                         <th>Type de moteur</th>
@@ -167,6 +185,7 @@
                     @foreach($vehicules as $Vehicule)
                     <tr>
                         <td>{{$Vehicule->id}}</td>
+                        <td>{{$Vehicule->nom_marque}}</td>
                         <td>{{$Vehicule->nom_modele}}</td>
                         <td>{{$Vehicule->nom_categorie}}</td>
                         <td>{{$Vehicule->type_moteur}}</td>
