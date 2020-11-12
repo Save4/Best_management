@@ -29,16 +29,10 @@
                  <div class="form-group row">
                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
                       <div class="col-md-6 col-sm-6 ">
-                      <select name="modele_id" id="" class="form-control">
+                      <select name="marque_id" id="marque_id" class="form-control">
 
-       @foreach($marques as $Marque)
-       <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
-      @endforeach
-      @error('marque_id')
 
-      <div class="alert alert-danger">{{$message}}</div>
-      @enderror
-</select>
+                         </select>
 
                             </div>
                         </div>
@@ -46,7 +40,7 @@
                     <div class="form-group row">
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Modele :</label>
                       <div class="col-md-6 col-sm-6 ">
-                      <select name="modele_id" id="" class="form-control" class="@error('modele_id') is-invalid @enderror">
+                      <select name="modele_id" id="modele_id" class="form-control" class="@error('modele_id') is-invalid @enderror">
                                    @foreach($modeles as $Modele)
                                           <option value="{{$Modele->id}}">{{$Modele->nom_modele}}</option>
                                             @endforeach
