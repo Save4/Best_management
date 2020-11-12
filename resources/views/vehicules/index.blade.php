@@ -30,6 +30,15 @@
                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="marque_id" id="marque_id" class="form-control">
+                          <option></option>
+                        @foreach($marques as $Marque)
+                        <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
+                        @endforeach
+                        @error('marque_id')
+
+                        <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
+
 
 
                          </select>
@@ -40,8 +49,9 @@
                     <div class="form-group row">
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Modele :</label>
                       <div class="col-md-6 col-sm-6 ">
-                      <select name="modele_id" id="modele_id" class="form-control" class="@error('modele_id') is-invalid @enderror">
-                                   @foreach($modeles as $Modele)
+                      <select name="modele_id" id="modele_id" class="select2_single form-control" tabindex="-1" class="@error('modele_id') is-invalid @enderror">
+                        <option></option>
+                                 @foreach($modeles as $Modele)
                                           <option value="{{$Modele->id}}">{{$Modele->nom_modele}}</option>
                                             @endforeach
                                  </select>
@@ -54,7 +64,8 @@
                          <div class="form-group row">
                          <label class="col-form-label col-md-3 col-sm-3 label-align ">Categorie :</label>
                            <div class="col-md-6 col-sm-6 ">
-                           <select name="categorie_id" id="" class="form-control" class="@error('categorie_id') is-invalid @enderror">
+                           <select name="categorie_id" id="" class="select2_single form-control" tabindex="-1" class="@error('categorie_id') is-invalid @enderror">
+                             <option></option>
                                         @foreach($categories as $Categorie)
                                                <option value="{{$Categorie->id}}">{{$Categorie->nom_categorie}}</option>
                                                  @endforeach
