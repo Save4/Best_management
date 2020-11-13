@@ -4,7 +4,7 @@
   <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Liste des vehicules</h2>
+        <h2>Liste des missions</h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -27,29 +27,36 @@
         <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
           <thead>
         <tr>
-          <th>ID</th>
-          <th>Marque</th>
-          <th>Modele</th>
-          <th>Categorie</th>
-          <th>Type de moteur</th>
-          <th>Boite de vitesse</th>
-          <th>Plaque</th>
-          <th>Nombre de place</th>
+            <th>ID</th>
+            <th>Marque</th>
+            <th>Modele</th>
+            <th>Plaque</th>
+            <th>Departement</th>
+            <th>Chauffeur</th>
+            <th>Mission</th>
+            <th>Debut</th>
+            <th>Fin</th>
+            <th>Etat</th>
+
+
         </tr>
         </thead>
 
 
-          <tbody>
-        @foreach($vehicules as $Vehicule)
-        <tr>
-          <td>{{$Vehicule->id}}</td>
-          <td>{{$Vehicule->nom_marque}}</td>
-          <td>{{$Vehicule->nom_modele}}</td>
-          <td>{{$Vehicule->nom_categorie}}</td>
-          <td>{{$Vehicule->type_moteur}}</td>
-          <td>{{$Vehicule->boite_vitesse}}</td>
-          <td>{{$Vehicule->plaque}}</td>
-          <td>{{$Vehicule->nombre_place}}</td>
+
+
+        <tbody>
+      @foreach($missions as $Mission)
+      <tr>
+          <td>{{$Mission->id}}</td>
+          <td>{{$Mission->nom_marque}}</td>
+          <td>{{$Mission->nom_modele}}</td>
+          <td>{{$Mission->plaque}}</td>
+          <td>{{$Mission->nom_departement}}</td>
+          <td>{{$Mission->type_mission}}</td>
+          <td>{{$Mission->date_debut}}</td>
+          <td>{{$Mission->date_fin}}</td>
+          <td>{{$Mission->etat}}</td>
         </tr>
             @endforeach
 
