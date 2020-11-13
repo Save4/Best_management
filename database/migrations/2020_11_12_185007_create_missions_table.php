@@ -21,8 +21,7 @@ class CreateMissionsTable extends Migration
          $table->string('type_mission');
          $table->date('date_debut');
          $table->date('date_fin');
-         $table->boolean('public')->default(false);
-         $table->timestamps();
+         $table->boolean('etat')->default(false);
          $table->foreign('vehicule_id')
                 ->references('id')
                 ->on('vehicules')
