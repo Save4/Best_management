@@ -7,7 +7,7 @@
   						<div class="col-md-12 col-sm-12 ">
   							<div class="x_panel">
   								<div class="x_title">
-  									<h2>Add marque</small></h2>
+  									<h2>Add departement</small></h2>
   									<ul class="nav navbar-right panel_toolbox">
   										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
   										</li>
@@ -22,15 +22,15 @@
   								</div>
   								<div class="x_content">
   									<br />
-  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('marques')}}" method="POST">
+  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('departements')}}" method="POST">
 
                                              @csrf
   										<div class="item form-group">
-  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Marque: </label>
+  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Departement: </label>
   											<div class="col-md-6 col-sm-6 ">
-  												<input type="text" name="nom_marque" id="first-name" required="required" class="form-control " class="@error('nom_marque') is-invalid @enderror"
-                                     placeholder="Entre le marque" value="">
-                                     @error('nom_marque')
+  												<input type="text" name="nom_departement" id="first-name" required="required" class="form-control " class="@error('nom_marque') is-invalid @enderror"
+                                     placeholder="Entre le departement" value="">
+                                     @error('nom_departement')
                               <button class="btn-danger">{{$message}}</button>
                               @enderror
   											</div>
@@ -60,7 +60,7 @@
               <div class="col-md-12 col-sm-12 ">
                               <div class="x_panel">
                                 <div class="x_title">
-                                  <h2>Liste des marques</small></h2>
+                                  <h2>Liste des departements</small></h2>
                                   <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -83,7 +83,7 @@
                       <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Marque</th>
+                        <th>Departement</th>
                         <th>Edit</th>
                         <th>Delete</th>
 
@@ -92,17 +92,17 @@
 
 
                       <tbody>
-                    @foreach($marques as $Marque)
+                    @foreach($departements as $Departement)
                     <tr>
-                        <td>{{$Marque->id}}</td>
-                        <td>{{$Marque->nom_marque}}</td>
+                        <td>{{$Departement->id}}</td>
+                        <td>{{$Departement->nom_departement}}</td>
 
                         <td>
-                          <button>  <a href="marques/edit/{{$Marque->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                          <button>  <a href="departements/edit/{{$Departement->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                         </button></td>
                         <td>
 
-                          <form action="marques/destroy/{{$Marque->id}}" method="post" class="form-inline">
+                          <form action="departements/destroy/{{$Departement->id}}" method="post" class="form-inline">
                           @csrf
                            <button type="submit" onclick="return confirm('Supprimer?')" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                          </form>
@@ -111,7 +111,7 @@
 
                     </tr>
                         @endforeach
-  <a href="{{url('marques/show/{Marque}')}}" class="btn btn-round btn-success btn-xs">Rapport</a>
+  <a href="{{url('departements/show/{Departement}')}}" class="btn btn-round btn-success btn-xs">Rapport</a>
                       </tbody>
                     </table>
                   </div>

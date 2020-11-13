@@ -41,8 +41,8 @@
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
 
+                          <button type="submit" id="submit" class="btn btn-round btn-success btn-xs">Save</button>
   												<button class="btn btn-round btn-primary btn-xs" type="reset">Reset</button>
-  												<button type="submit" id="submit" class="btn btn-round btn-success btn-xs">Save</button>
   											</div>
   										</div>
 
@@ -85,7 +85,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Categorie</th>
-                        <th>Show</th>
                         <th>Edit</th>
                         <th>Delete</th>
 
@@ -98,9 +97,7 @@
                     <tr>
                         <td>{{$Categorie->id}}</td>
                         <td>{{$Categorie->nom_categorie}}</td>
-                        <td>
-                      <button>      <a href="categories/show/{{$Categorie->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Show"><i class="fa fa-eye"></i></a>
-                      </button></td>
+
                         <td>
                           <button>  <a href="categories/edit/{{$Categorie->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                         </button></td>
@@ -115,7 +112,7 @@
 
                     </tr>
                         @endforeach
-
+  <a href="{{url('categories/show/{Categorie}')}}" class="btn btn-round btn-success btn-xs">Rapport</a>
                       </tbody>
                     </table>
                   </div>
