@@ -103,6 +103,21 @@
   											</div>
   										</div>
 
+                      <div class="form-group row{{ $errors->has('etat') ? ' has-error' : '' }}">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Etat :</label>
+                        <div class="col-md-6 col-sm-6 ">
+                        <select name="etat" id="etat" class="form-control">
+                          <option value="1" @if (old('etat') == 1) selected @endif>Mission en cours</option>
+                          <option value="0" @if (old('etat') == 0) selected @endif>Mission termine</option>
+
+
+                                   </select>
+
+
+
+                           </div>
+                           </div>
+
 
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
