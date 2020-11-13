@@ -21,7 +21,7 @@
   								</div>
   								<div class="x_content">
   									<br />
-  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/vehicules/{{$Vehicule->id}}" method="post">
+  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/missions/{{$Mission->id}}" method="post">
 
                       @csrf
                       @method('PUT')
