@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Mission;
+use App\Marque;
+use App\Modele;
 use App\Vehicule;
 use App\Chauffeur;
 use App\Departement;
@@ -23,15 +25,21 @@ class MissionsController extends Controller
            ->join('vehicules', 'missions.vehicule_id', 'vehicules.id')
            ->join('chauffeurs', 'missions.chauffeur_id', 'chauffeurs.id')
            ->join('departements', 'missions.departement_id', 'departements.id')
-           ->select('vehicules.*','departements.*','chauffeurs.*','missions.*')
+           ->join('modeles', 'vehicules.modele_id', 'modeles.id')
+           ->join('marques', 'modeles.marque_id', 'marques.id')
+           ->select('marques.*','modeles.*','vehicules.*','departements.*','chauffeurs.*','missions.*')
            ->get();
            $departements = Departement::all();
            $chauffeurs = Chauffeur::all();
            $vehicules = Vehicule::all();
+           $marques = Marque::all();
+           $modeles = Modele::all();
 
 
   return view('missions/index',[
 
+    'marques'=> $marques,
+    '$modeles'=> $modeles,
     'missions'=> $missions,
     'vehicules'=> $vehicules,
     'chauffeurs'=>$chauffeurs,
@@ -115,14 +123,20 @@ public function edit(Mission $Mission)
          ->join('vehicules', 'missions.vehicule_id', 'vehicules.id')
          ->join('chauffeurs', 'missions.chauffeur_id', 'chauffeurs.id')
          ->join('departements', 'missions.departement_id', 'departements.id')
-         ->select('vehicules.*','departements.*','chauffeurs.*','missions.*')
+         ->join('modeles', 'vehicules.modele_id', 'modeles.id')
+         ->join('marques', 'modeles.marque_id', 'marques.id')
+         ->select('marques.*','modeles.*','vehicules.*','departements.*','chauffeurs.*','missions.*')
          ->get();
          $departements = Departement::all();
          $chauffeurs = Chauffeur::all();
          $vehicules = Vehicule::all();
+         $marques = Marque::all();
+         $modeles = Modele::all();
 
 return view('misssions/show',[
 
+  'marques'=> $marques,
+  '$modeles'=> $modeles,
   'missions'=> $missions,
   'vehicules'=> $vehicules,
   'chauffeurs'=>$chauffeurs,
