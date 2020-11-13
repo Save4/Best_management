@@ -44,7 +44,7 @@
                            <div class="col-md-6 col-sm-6 ">
                            <select name="chauffeur_id" id="" class="form-control" class="@error('chauffeur_id') is-invalid @enderror">
                                         @foreach($chauffeurs as $Chauffeur)
-                                               <option value="{{$Chauffeur->id}}">{{$Chauffeur->plaque}}</option>
+                                               <option value="{{$Chauffeur->id}}">{{$Chauffeur->nom}} {{$Chauffeur->prenom}}</option>
                                                  @endforeach
                                       </select>
                                                  @error('chauffeur_id')
