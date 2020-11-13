@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 use App\Mission;
 use App\Vehicule;
-use App\Modele;
-use App\Marque;
 use App\Chauffeur;
 use App\Departement;
 use Illuminate\Http\Request;
@@ -25,12 +23,8 @@ class MissionsController extends Controller
            ->join('vehicules', 'missions.vehicule_id', 'vehicules.id')
            ->join('chauffeurs', 'missions.chauffeur_id', 'chauffeurs.id')
            ->join('departements', 'missions.departement_id', 'departements.id')
-           ->join('modeles', 'vehicules.modele_id', 'modeles.id')
-           ->join('marques', 'modeles.marque_id', 'marques.id')
-           ->select('marques.*','modeles.*','vehicules.*','departements.*','chauffeurs.*','missions.*')
+           ->select('vehicules.*','departements.*','chauffeurs.*','missions.*')
            ->get();
-           $modeles = Modele::all();
-           $marques = Marque::all();
            $departements = Departement::all();
            $chauffeurs = Chauffeur::all();
            $vehicules = Vehicule::all();
@@ -40,8 +34,6 @@ class MissionsController extends Controller
 
     'missions'=> $missions,
     'vehicules'=> $vehicules,
-    'modeles'=>$modeles,
-    'marques'=>$marques,
     'chauffeurs'=>$chauffeurs,
     'departements'=>$departements
   ]);
@@ -50,8 +42,6 @@ class MissionsController extends Controller
 
 public function create()
 {
-  $modeles = Modele::all();
-  $marques = Marque::all();
   $departements = Departement::all();
   $chauffeurs = Chauffeur::all();
   $vehicules = Vehicule::all();
@@ -59,16 +49,12 @@ public function create()
          ->join('vehicules', 'missions.vehicule_id', 'vehicules.id')
          ->join('chauffeurs', 'missions.chauffeur_id', 'chauffeurs.id')
          ->join('departements', 'missions.departement_id', 'departements.id')
-         ->join('modeles', 'vehicules.modele_id', 'modeles.id')
-         ->join('marques', 'modeles.marque_id', 'marques.id')
-         ->select('marques.*','modeles.*','vehicules.*','departements.*','chauffeurs.*','missions.*')
+         ->select('vehicules.*','departements.*','chauffeurs.*','missions.*')
          ->get();
      return view('missions/create',[
 
        'missions'=> $missions,
        'vehicules'=> $vehicules,
-       'modeles'=>$modeles,
-       'marques'=>$marques,
        'chauffeurs'=>$chauffeurs,
        'departements'=>$departements
         ]);
@@ -129,12 +115,8 @@ public function edit(Mission $Mission)
          ->join('vehicules', 'missions.vehicule_id', 'vehicules.id')
          ->join('chauffeurs', 'missions.chauffeur_id', 'chauffeurs.id')
          ->join('departements', 'missions.departement_id', 'departements.id')
-         ->join('modeles', 'vehicules.modele_id', 'modeles.id')
-         ->join('marques', 'modeles.marque_id', 'marques.id')
-         ->select('marques.*','modeles.*','vehicules.*','departements.*','chauffeurs.*','missions.*')
+         ->select('vehicules.*','departements.*','chauffeurs.*','missions.*')
          ->get();
-         $modeles = Modele::all();
-         $marques = Marque::all();
          $departements = Departement::all();
          $chauffeurs = Chauffeur::all();
          $vehicules = Vehicule::all();
@@ -143,8 +125,6 @@ return view('misssions/show',[
 
   'missions'=> $missions,
   'vehicules'=> $vehicules,
-  'modeles'=>$modeles,
-  'marques'=>$marques,
   'chauffeurs'=>$chauffeurs,
   'departements'=>$departements
 ]);
