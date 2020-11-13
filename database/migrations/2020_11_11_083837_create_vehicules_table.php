@@ -19,7 +19,7 @@ class CreateVehiculesTable extends Migration
          $table->unsignedBigInteger('categorie_id');
          $table->string('boite_vitesse');
          $table->string('type_moteur');
-         $table->string('plaque');
+         $table->string('plaque')->unique();
          $table->integer('nombre_place');
          $table->timestamps();
          $table->foreign('modele_id')

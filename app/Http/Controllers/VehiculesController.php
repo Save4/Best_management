@@ -159,7 +159,7 @@ return view('vehicules/show',[
     {
         if ($request->has('modele_id')) {
             $modele_id = $request->get('modele_id');
-               $modeles = DB::table('provinces')
+               $modeles = DB::table('modeles')
                  ->join('marques', 'modeles.marque_id', 'marques.id')
                  ->where('modeles.id', '=', $modele_id)
                  ->get();

@@ -41,8 +41,8 @@
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
 
+                          <button type="submit" id="submit" class="btn btn-round btn-success btn-xs">Modify</button>
   												<button class="btn btn-round btn-primary btn-xs" type="reset">Reset</button>
-  												<button type="submit" id="submit" class="btn btn-round btn-success btn-xs">Modify</button>
   											</div>
   										</div>
 
