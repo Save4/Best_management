@@ -6,7 +6,7 @@
   						<div class="col-md-12 col-sm-12 ">
   							<div class="x_panel">
   								<div class="x_title">
-  									<h2>Modification des identifications du vehicule</small></h2>
+  									<h2>Modification la mission</small></h2>
   									<ul class="nav navbar-right panel_toolbox">
   										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
   										</li>
@@ -21,15 +21,14 @@
   								</div>
   								<div class="x_content">
   									<br />
-  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/vehicules/{{$Vehicule->id}}" method="post">
+  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/missions/{{$Mission->id}}" method="post">
 
                       @csrf
                       @method('PUT')
                       <div class="form-group row">
                       <label class="col-form-label col-md-3 col-sm-3 label-align ">Selectionne la marque :</label>
                       <div class="col-md-6 col-sm-6 ">
-                      <select name="modele_id" id="" class="select2_single form-control" tabindex="-1" class="@error('modele_id') is-invalid @enderror">
-                        <option></option>
+                      <select name="modele_id" id="" class="form-control" class="@error('modele_id') is-invalid @enderror">
                                    @foreach($modeles as $Modele)
                                           <option value="{{$Modele->id}}">{{$Modele->nom_modele}}</option>
                                             @endforeach
@@ -43,8 +42,7 @@
                            <div class="form-group row">
                            <label class="col-form-label col-md-3 col-sm-3 label-align ">Categorie :</label>
                              <div class="col-md-6 col-sm-6 ">
-                             <select name="categorie_id" id="" class="select2_single form-control" tabindex="-1" class="@error('categorie_id') is-invalid @enderror">
-                               <option></option>
+                             <select name="categorie_id" id="" class="form-control" class="@error('categorie_id') is-invalid @enderror">
                                           @foreach($categories as $Categorie)
                                                  <option value="{{$Categorie->id}}">{{$Categorie->nom_categorie}}</option>
                                                    @endforeach
