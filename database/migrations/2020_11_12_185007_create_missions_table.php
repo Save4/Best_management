@@ -14,8 +14,30 @@ class CreateMissionsTable extends Migration
     public function up()
     {
         Schema::create('missions', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+          $table->bigIncrements('id');
+          $table->unsignedBigInteger('vehicule_id');
+          $table->unsignedBigInteger('chauffeur_id');
+         $table->unsignedBigInteger('departement_id');
+         $table->string('type_mission');
+         $table->date('date_debut');
+         $table->date('date_fin');
+         $table->boolean('public')->default(false);
+         $table->timestamps();
+         $table->foreign('vehicule_id')
+                ->references('id')
+                ->on('vehicules')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+         $table->foreign('chauffeur_id')
+                ->references('id')
+                ->on('chauffeurs')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+          $table->foreign('departement_id')
+                ->references('id')
+                ->on('departements')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
