@@ -35,7 +35,7 @@ Route::get('marques','MarquesController@index');
 Route::get('marques/create','MarquesController@create');
 Route::post('marques','MarquesController@store');
 Route::get('marques/edit/{Marque}','MarquesController@edit');
-Route::get('marques/show/{Modele}','MarquesController@show');
+Route::get('marques/show/{Marque}','MarquesController@show');
 Route::put('marques/{Marque}','MarquesController@update');
 Route::post('marques/destroy/{Marque}','MarquesController@destroy');
 
@@ -58,6 +58,9 @@ Route::get('vehicules/show/{Vehicule}','VehiculesController@show');
 Route::put('vehicules/{Vehicule}','VehiculesController@update');
 Route::post('vehicules/destroy/{Vehicule}','VehiculesController@destroy');
 
+//Route::get('vehicules/chargeMarque', 'VehiculesController@chargeMarque');
+
+
 Route::get('departements','DepartementsController@index');
 Route::get('departements/create','DepartementsController@create');
 Route::post('departements','DepartementsController@store');
@@ -74,3 +77,12 @@ Route::get('chauffeurs/edit/{Chauffeur}','ChauffeursController@edit');
 Route::get('chauffeurs/show/{Chauffeur}','ChauffeursController@show');
 Route::put('chauffeurs/{Chauffeur}','ChauffeursController@update');
 Route::post('chauffeurs/destroy/{Chauffeur}','ChauffeursController@destroy');
+
+
+Route::get('missions','MissionsController@index');
+Route::get('missions/create','MissionsController@create');
+Route::post('missions','MissionsController@store');
+Route::get('missions/edit/{Mission}','MissionsController@edit');
+Route::get('missions/show/{Mission}','MissionsController@show');
+Route::put('missions/{Mission}','MissionsController@update');
+Route::post('missions/destroy/{Mission}','MissionsController@destroy');
