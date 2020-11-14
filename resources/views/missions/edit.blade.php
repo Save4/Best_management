@@ -26,84 +26,95 @@
                       @csrf
                       @method('PUT')
                       <div class="form-group row">
-                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Selectionne la marque :</label>
-                      <div class="col-md-6 col-sm-6 ">
-                      <select name="modele_id" id="" class="form-control" class="@error('modele_id') is-invalid @enderror">
-                                   @foreach($modeles as $Modele)
-                                          <option value="{{$Modele->id}}">{{$Modele->nom_modele}}</option>
-                                            @endforeach
-                       </select>
-                                            @error('modele_id')
-                             <button class="btn-danger">{{$message}}</button>
-                                            @enderror
-
-                         </div>
-                  </div>
+                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Vehicule :</label>
+                        <div class="col-md-6 col-sm-6 ">
+                        <select name="vehicule_id" id="" class="form-control" class="@error('vehicule_id') is-invalid @enderror">
+                                     @foreach($vehicules as $Vehicule)
+                                            <option value="{{$Vehicule->id}}">{{$Vehicule->plaque}}</option>
+                                              @endforeach
+                                   </select>
+                                              @error('vehicule_id')
+                               <button class="btn-danger">{{$message}}</button>
+                                              @enderror
+                           </div>
+                           </div>
                            <div class="form-group row">
-                           <label class="col-form-label col-md-3 col-sm-3 label-align ">Categorie :</label>
+                           <label class="col-form-label col-md-3 col-sm-3 label-align ">Chauffeur :</label>
                              <div class="col-md-6 col-sm-6 ">
-                             <select name="categorie_id" id="" class="form-control" class="@error('categorie_id') is-invalid @enderror">
-                                          @foreach($categories as $Categorie)
-                                                 <option value="{{$Categorie->id}}">{{$Categorie->nom_categorie}}</option>
+                             <select name="chauffeur_id" id="" class="form-control" class="@error('chauffeur_id') is-invalid @enderror">
+                                          @foreach($chauffeurs as $Chauffeur)
+                                                 <option value="{{$Chauffeur->id}}">{{$Chauffeur->nom}} {{$Chauffeur->prenom}}</option>
                                                    @endforeach
                                         </select>
-                                                   @error('categorie_id')
+                                                   @error('chauffeur_id')
                                     <button class="btn-danger">{{$message}}</button>
                                                    @enderror
                                 </div>
-                            </div>
-
-                                <div class="item form-group">
-                                  <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Plaque :<span class="required"></span>
-                                  </label>
-                                  <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="plaque" id="first-name" required="required" class="form-control " class="@error('plaque') is-invalid @enderror"
-                                               placeholder="" value="{{ $Vehicule->plaque }}">
-                                               @error('plaque')
-                                        <button class="btn-danger">{{$message}}</button>
-                                        @enderror
-                                  </div>
                                 </div>
 
-                                <div class="item form-group">
-                                  <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Boite de vitesse :<span class="required"></span>
-                                  </label>
+                                <div class="form-group row">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align ">Departement :</label>
                                   <div class="col-md-6 col-sm-6 ">
-                                     <select name="boite_vitesse" id="" class="form-control">
+                                  <select name="departement_id" id="" class="form-control" class="@error('departement_id') is-invalid @enderror">
+                                               @foreach($departements as $Departement)
+                                                      <option value="{{$Departement->id}}">{{$Departement->nom_departement}}</option>
+                                                        @endforeach
+                                             </select>
+                                                        @error('departement_id')
+                                         <button class="btn-danger">{{$message}}</button>
+                                                        @enderror
+                                     </div>
+                                     </div>
+                                     <div class="item form-group">
+                                       <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mission :<span class="required"></span>
+                                       </label>
+                                       <div class="col-md-6 col-sm-6 ">
+                                         <input type="text" name="type_mission" id="first-name" required="required" class="form-control " class="@error('type_mission') is-invalid @enderror"
+                                                    placeholder="Entre la misssion" value="">
+                                                    @error('type_mission')
+                                             <button class="btn-danger">{{$message}}</button>
+                                             @enderror
+                                       </div>
+                                     </div>
 
-                                       <option>{{ $Vehicule->boite_vitesse }}</option>
-                                       <option>Manuel</option>
-                                      <option>Automatique</option>
-                                    </select>
+                                     <div class="item form-group">
+                 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Debut :<span class="required"></span>
+                 											</label>
+                 											<div class="col-md-6 col-sm-6 ">
+                 												<input type="date" name="date_debut" id="first-name" required="required" class="form-control " class="@error('date_debut') is-invalid @enderror"
+                                                    placeholder="" value="">
+                                                    @error('date_debut')
+                                             <button class="btn-danger">{{$message}}</button>
+                                             @enderror
+                 											</div>
+                 										</div>
 
-                                  </div>
-                                </div>
+                      <div class="item form-group">
+                      	<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Fin :<span class="required"></span>
+                      	</label>
+                      	<div class="col-md-6 col-sm-6 ">
+                      		<input type="date" name="date_fin" id="first-name" required="required" class="form-control " class="@error('date_fin') is-invalid @enderror"
+                                     placeholder="" value="">
+                                     @error('date_fin')
+                              <button class="btn-danger">{{$message}}</button>
+                              @enderror
+                      	</div>
+                      </div>
 
-                                <div class="item form-group">
-                                  <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Type de moteur :<span class="required"></span>
-                                  </label>
-                                  <div class="col-md-6 col-sm-6 ">
-                                     <select name="type_moteur" id="" class="form-control" >
+                      <div class="form-group row{{ $errors->has('etat') ? ' has-error' : '' }}">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Etat :</label>
+                        <div class="col-md-6 col-sm-6 ">
+                        <select name="etat" id="etat" class="form-control">
+                          <option value="1" @if (old('etat') == 1) selected @endif>Mission en cours</option>
+                          <option value="0" @if (old('etat') == 0) selected @endif>Mission termine</option>
 
-                                       <option>{{ $Vehicule->type_moteur }}</option>
-                                       <option>Moteur a essance</option>
-                                       <option>Moteur a diesel</option>
-                                      <option>Moteur electrique</option>
 
-                                  </select>
-                                  </div>
-                                </div>
-                                <div class="item form-group">
-                                  <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre de place :<span class="required"></span>
-                                  </label>
-                                  <div class="col-md-6 col-sm-6 ">
-                                    <input type="number" name="nombre_place" id="first-name" required="required" class="form-control " class="@error('nombre_place') is-invalid @enderror"
-                                               placeholder="" value="{{ $Vehicule->nombre_place }}">
-                                               @error('nombre_place')
-                                        <button class="btn-danger">{{$message}}</button>
-                                        @enderror
-                                  </div>
-                                </div>
+                                   </select>
+
+
+
+                           </div>
+                           </div>
 
 
                       <div class="item form-group">
