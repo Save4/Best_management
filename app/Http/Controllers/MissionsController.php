@@ -133,7 +133,7 @@ public function edit(Mission $Mission)
          $marques = Marque::all();
          $modeles = Modele::all();
 
-return view('misssions/show',[
+return view('missions/show',[
 
   'marques'=> $marques,
   '$modeles'=> $modeles,
