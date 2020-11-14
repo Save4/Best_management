@@ -86,3 +86,11 @@ Route::get('missions/edit/{Mission}','MissionsController@edit');
 Route::get('missions/show/{Mission}','MissionsController@show');
 Route::put('missions/{Mission}','MissionsController@update');
 Route::post('missions/destroy/{Mission}','MissionsController@destroy');
+
+Route::get('fournisseurs','FournisseursController@index');
+Route::get('fournisseurs/create','FournisseursController@create');
+Route::post('fournisseurs','FournisseursController@store');
+Route::get('fournisseurs/edit/{Fournisseur}','FournisseursController@edit');
+Route::get('fournisseurs/show/{Fournisseur}','FournisseursController@show');
+Route::put('fournisseurs/{Fournisseur}','FournisseursController@update');
+Route::post('fournisseurs/destroy/{Fournisseur}','FournisseursController@destroy');
