@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 @section('content')
+  <div class="row">
 
   <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
@@ -8,10 +9,7 @@
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
 
-          </li>
           <li><a class="close-link"><i class="fa fa-close"></i></a>
           </li>
         </ul>
@@ -38,25 +36,23 @@
             <th>Fin</th>
             <th>Etat</th>
 
-
         </tr>
         </thead>
 
 
-
-
-        <tbody>
-      @foreach($missions as $Mission)
-      <tr>
-          <td>{{$Mission->id}}</td>
-          <td>{{$Mission->nom_marque}}</td>
-          <td>{{$Mission->nom_modele}}</td>
-          <td>{{$Mission->plaque}}</td>
-          <td>{{$Mission->nom_departement}}</td>
-          <td>{{$Mission->type_mission}}</td>
-          <td>{{$Mission->date_debut}}</td>
-          <td>{{$Mission->date_fin}}</td>
-          <td>{{$Mission->etat}}</td>
+          <tbody>
+        @foreach($missions as $Mission)
+        <tr>
+            <td>{{$Mission->id}}</td>
+            <td>{{$Mission->nom_marque}}</td>
+            <td>{{$Mission->nom_modele}}</td>
+            <td>{{$Mission->plaque}}</td>
+            <td>{{$Mission->nom_departement}}</td>
+            <td>{{$Mission->nom}}</td>
+            <td>{{$Mission->type_mission}}</td>
+            <td>{{$Mission->date_debut}}</td>
+            <td>{{$Mission->date_fin}}</td>
+            <td>{{$Mission->etat}}</td>
         </tr>
             @endforeach
 
@@ -68,6 +64,8 @@
 </div>
 </div>
 </div>
+</div>
+
 
 
 @endsection()
