@@ -25,7 +25,6 @@
                   <li><a><i class="fa fa-users"></i>Mission <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('chauffeurs')}}">Chauffeurs</a></li>
-                      <li><a href="{{url('fournisseurs')}}">Fournisseurs</a></li>
                       <li><a href="{{url('missions')}}">Mission</a></li>
                     </ul>
                   </li>
@@ -36,10 +35,10 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-edit"></i> Consommation <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="{{url('fournisseurs')}}">Fournisseurs</a></li>
                       <li><a href="e{{url('reparations')}}">Reparation</a></li>
-                      <li><a href="e{{url('impot_taxe_assurences')}}">Fournisseur</a></li>
                       <li><a href="{{url('carburents')}}">Carburent</a></li>
-                      <li><a href="{{url('assurences')}}">Impot et assurence</a></li>
+                      <li><a href="{{url('assurences')}}">Impot ou taxe ou assurence</a></li>
 
                     </ul>
                   </li>
