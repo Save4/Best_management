@@ -10,10 +10,7 @@
   									<ul class="nav navbar-right panel_toolbox">
   										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
   										</li>
-  										<li class="dropdown">
-  											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-
-  										</li>
+  									
   										<li><a class="close-link"><i class="fa fa-close"></i></a>
   										</li>
   									</ul>
@@ -70,7 +67,7 @@
   												<input type="text" name="telephone" id="first-name" required="required" class="form-control has-feedback-left" id="inputSuccess2" class="@error('telephone') is-invalid @enderror" placeholder=""
                             value="{{ $Chauffeur->telephone }}">
                             <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
-                            
+
 
                         @error('telephone')
                         <button class="btn-danger">{{ $message }}</button>
