@@ -36,7 +36,7 @@
                   <li><a><i class="fa fa-edit"></i> Consommation <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('fournisseurs')}}">Fournisseurs</a></li>
-                      <li><a href="e{{url('reparations')}}">Reparation</a></li>
+                      <li><a href="{{url('reparations')}}">Reparation</a></li>
                       <li><a href="{{url('carburents')}}">Carburent</a></li>
                       <li><a href="{{url('assurences')}}">Impot ou taxe ou assurence</a></li>
 

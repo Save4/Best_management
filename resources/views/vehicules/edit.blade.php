@@ -10,10 +10,7 @@
   									<ul class="nav navbar-right panel_toolbox">
   										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
   										</li>
-  										<li class="dropdown">
-  											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-
-  										</li>
+  										
   										<li><a class="close-link"><i class="fa fa-close"></i></a>
   										</li>
   									</ul>
@@ -28,7 +25,8 @@
                       <div class="form-group row">
                       <label class="col-form-label col-md-3 col-sm-3 label-align ">Selectionne la marque :</label>
                       <div class="col-md-6 col-sm-6 ">
-                      <select name="modele_id" id="" class="form-control" class="@error('modele_id') is-invalid @enderror">
+                      <select name="modele_id" id="" class="select2_single form-control" tabindex="-1" class="@error('modele_id') is-invalid @enderror">
+                        <option></option>
                                    @foreach($modeles as $Modele)
                                           <option value="{{$Modele->id}}">{{$Modele->nom_modele}}</option>
                                             @endforeach
@@ -42,7 +40,8 @@
                            <div class="form-group row">
                            <label class="col-form-label col-md-3 col-sm-3 label-align ">Categorie :</label>
                              <div class="col-md-6 col-sm-6 ">
-                             <select name="categorie_id" id="" class="form-control" class="@error('categorie_id') is-invalid @enderror">
+                             <select name="categorie_id" id="" class="select2_single form-control" tabindex="-1" class="@error('categorie_id') is-invalid @enderror">
+                               <option></option>
                                           @foreach($categories as $Categorie)
                                                  <option value="{{$Categorie->id}}">{{$Categorie->nom_categorie}}</option>
                                                    @endforeach

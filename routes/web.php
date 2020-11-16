@@ -35,7 +35,7 @@ Route::get('marques','MarquesController@index');
 Route::get('marques/create','MarquesController@create');
 Route::post('marques','MarquesController@store');
 Route::get('marques/edit/{Marque}','MarquesController@edit');
-Route::get('marques/show/{Modele}','MarquesController@show');
+Route::get('marques/show/{Marque}','MarquesController@show');
 Route::put('marques/{Marque}','MarquesController@update');
 Route::post('marques/destroy/{Marque}','MarquesController@destroy');
 
@@ -57,6 +57,9 @@ Route::get('vehicules/edit/{Vehicule}','VehiculesController@edit');
 Route::get('vehicules/show/{Vehicule}','VehiculesController@show');
 Route::put('vehicules/{Vehicule}','VehiculesController@update');
 Route::post('vehicules/destroy/{Vehicule}','VehiculesController@destroy');
+
+//Route::get('vehicules/chargeMarque', 'VehiculesController@chargeMarque');
+
 
 Route::get('departements','DepartementsController@index');
 Route::get('departements/create','DepartementsController@create');
@@ -83,3 +86,29 @@ Route::get('missions/edit/{Mission}','MissionsController@edit');
 Route::get('missions/show/{Mission}','MissionsController@show');
 Route::put('missions/{Mission}','MissionsController@update');
 Route::post('missions/destroy/{Mission}','MissionsController@destroy');
+
+Route::get('fournisseurs','FournisseursController@index');
+Route::get('fournisseurs/create','FournisseursController@create');
+Route::post('fournisseurs','FournisseursController@store');
+Route::get('fournisseurs/edit/{Fournisseur}','FournisseursController@edit');
+Route::get('fournisseurs/show/{Fournisseur}','FournisseursController@show');
+Route::put('fournisseurs/{Fournisseur}','FournisseursController@update');
+Route::post('fournisseurs/destroy/{Fournisseur}','FournisseursController@destroy');
+
+
+Route::get('reparations','ReparationsController@index');
+Route::get('reparations/create','ReparationsController@create');
+Route::post('reparations','ReparationsController@store');
+Route::get('reparations/edit/{Reparation}','ReparationsController@edit');
+Route::get('reparations/show/{Reparation}','ReparationsController@show');
+Route::put('reparations/{Reparation}','ReparationsController@update');
+Route::post('reparations/destroy/{Reparation}','ReparationsController@destroy');
+
+
+Route::get('carburants','CarburantsController@index');
+Route::get('carburants/create','CarburantsController@create');
+Route::post('carburants','CarburantsController@store');
+Route::get('carburants/edit/{Carburant}','CarburantsController@edit');
+Route::get('carburants/show/{Carburant}','CarburantsController@show');
+Route::put('carburants/{Carburant}','CarburantsController@update');
+Route::post('carburants/destroy/{Carburant}','CarburantsController@destroy');
