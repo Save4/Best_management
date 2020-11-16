@@ -8,7 +8,7 @@
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
-          
+
           <li><a class="close-link"><i class="fa fa-close"></i></a>
           </li>
         </ul>
@@ -25,28 +25,23 @@
           <thead>
         <tr>
           <th>ID</th>
-          <th>Marque</th>
-          <th>Modele</th>
-          <th>Categorie</th>
-          <th>Type de moteur</th>
-          <th>Boite de vitesse</th>
-          <th>Plaque</th>
-          <th>Nombre de place</th>
+          <th>Type de mission</th>
+          <th>Fournisseur</th>
+          <th>Produit</th>
+          <th>Quantite</th>
+          <th>Prix</th>
         </tr>
         </thead>
 
 
           <tbody>
-        @foreach($vehicules as $Vehicule)
-        <tr>
-          <td>{{$Vehicule->id}}</td>
-          <td>{{$Vehicule->nom_marque}}</td>
-          <td>{{$Vehicule->nom_modele}}</td>
-          <td>{{$Vehicule->nom_categorie}}</td>
-          <td>{{$Vehicule->type_moteur}}</td>
-          <td>{{$Vehicule->boite_vitesse}}</td>
-          <td>{{$Vehicule->plaque}}</td>
-          <td>{{$Vehicule->nombre_place}}</td>
+            @foreach($carburants as $Carburant)
+            <tr>
+                <td>{{$Carburant->id}}</td>
+                <td>{{$Carburant->type_mission}}</td>
+                <td>{{$Carburant->nom_societe}}</td>
+                <td>{{$Carburant->quantite}}{{$Carburant->unite}}</td>
+                <td>{{$Carburant->prix_total}}{{$Carburant->monaie}}</td>
         </tr>
             @endforeach
 

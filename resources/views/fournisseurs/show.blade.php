@@ -1,14 +1,16 @@
 @extends('layouts.layout')
 @section('content')
+  <div class="row">
+
 
   <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Liste des vehicules</h2>
+        <h2>Liste des fournisseurs</h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
-          
+
           <li><a class="close-link"><i class="fa fa-close"></i></a>
           </li>
         </ul>
@@ -24,29 +26,30 @@
         <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
           <thead>
         <tr>
-          <th>ID</th>
-          <th>Marque</th>
-          <th>Modele</th>
-          <th>Categorie</th>
-          <th>Type de moteur</th>
-          <th>Boite de vitesse</th>
-          <th>Plaque</th>
-          <th>Nombre de place</th>
+            <th>ID</th>
+            <th>Societe</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th>Province</th>
+            <th>Commune</th>
+            <th>Colline</th>
+
         </tr>
         </thead>
 
 
           <tbody>
-        @foreach($vehicules as $Vehicule)
+        @foreach($fournisseurs as $Fournisseur)
         <tr>
-          <td>{{$Vehicule->id}}</td>
-          <td>{{$Vehicule->nom_marque}}</td>
-          <td>{{$Vehicule->nom_modele}}</td>
-          <td>{{$Vehicule->nom_categorie}}</td>
-          <td>{{$Vehicule->type_moteur}}</td>
-          <td>{{$Vehicule->boite_vitesse}}</td>
-          <td>{{$Vehicule->plaque}}</td>
-          <td>{{$Vehicule->nombre_place}}</td>
+          <td>{{$Fournisseur->id}}</td>
+          <td>{{$Fournisseur->nom_societe}}</td>
+          <td>{{$Fournisseur->email}}</td>
+          <td>{{$Fournisseur->telephone}}</td>
+          <td>{{$Fournisseur->province}}</td>
+          <td>{{$Fournisseur->commune}}</td>
+          <td>{{$Fournisseur->colline}}</td>
+
+
         </tr>
             @endforeach
 
@@ -55,6 +58,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 </div>
