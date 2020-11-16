@@ -94,22 +94,6 @@ Route::get('fournisseurs/edit/{Fournisseur}','FournisseursController@edit');
 Route::get('fournisseurs/show/{Fournisseur}','FournisseursController@show');
 Route::put('fournisseurs/{Fournisseur}','FournisseursController@update');
 Route::post('fournisseurs/destroy/{Fournisseur}','FournisseursController@destroy');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> fournisseur
-
-
-Route::get('reparations','ReparationsController@index');
-Route::get('reparations/create','ReparationsController@create');
-Route::post('reparations','ReparationsController@store');
-Route::get('reparations/edit/{Reparation}','ReparationsController@edit');
-Route::get('reparations/show/{Reparation}','ReparationsController@show');
-Route::put('reparations/{Reparation}','ReparationsController@update');
-Route::post('reparations/destroy/{Reparation}','ReparationsController@destroy');
 
 
 Route::get('carburants','CarburantsController@index');
@@ -119,9 +103,3 @@ Route::get('carburants/edit/{Carburant}','CarburantsController@edit');
 Route::get('carburants/show/{Carburant}','CarburantsController@show');
 Route::put('carburants/{Carburant}','CarburantsController@update');
 Route::post('carburants/destroy/{Carburant}','CarburantsController@destroy');
-<<<<<<< HEAD
->>>>>>> mission
->>>>>>> categorie
-=======
->>>>>>> carburant
->>>>>>> fournisseur
