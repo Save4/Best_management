@@ -103,3 +103,12 @@ Route::get('reparations/edit/{Reparation}','ReparationsController@edit');
 Route::get('reparations/show/{Reparation}','ReparationsController@show');
 Route::put('reparations/{Reparation}','ReparationsController@update');
 Route::post('reparations/destroy/{Reparation}','ReparationsController@destroy');
+
+
+Route::get('carburants','CarburantsController@index');
+Route::get('carburants/create','CarburantsController@create');
+Route::post('carburants','CarburantsController@store');
+Route::get('carburants/edit/{Carburant}','CarburantsController@edit');
+Route::get('carburants/show/{Carburant}','CarburantsController@show');
+Route::put('carburants/{Carburant}','CarburantsController@update');
+Route::post('carburants/destroy/{Carburant}','CarburantsController@destroy');
