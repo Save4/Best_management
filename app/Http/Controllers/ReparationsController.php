@@ -27,7 +27,7 @@ class ReparationsController extends Controller
            ->join('fournisseurs', 'reparations.fournisseur_id', 'fournisseurs.id')
            ->join('modeles', 'vehicules.modele_id', 'modeles.id')
            ->join('marques', 'modeles.marque_id', 'marques.id')
-           ->select('marques.*','modeles.*','vehicules.*','chauffeurs.*','reparations.*')
+           ->select('marques.*','modeles.*','fournisseurs.*','vehicules.*','chauffeurs.*','reparations.*')
            ->get();
            $chauffeurs = Chauffeur::all();
            $vehicules = Vehicule::all();
@@ -57,11 +57,10 @@ public function create()
          ->join('vehicules', 'reparations.vehicule_id', 'vehicules.id')
          ->join('chauffeurs', 'reparations.chauffeur_id', 'chauffeurs.id')
          ->join('fournisseurs', 'reparations.fournisseur_id', 'fournisseurs.id')
-         ->select('vehicules.*','chauffeurs.*','reparations.*')
+         ->select('vehicules.*','fournisseurs.*','chauffeurs.*','reparations.*')
          ->get();
      return view('reparations/create',[
 
-       'reparations'=> $reparations,
        'vehicules'=> $vehicules,
        'fournisseurs'=> $fournisseurs,
        'chauffeurs'=>$chauffeurs
@@ -85,7 +84,7 @@ public function store(Request $request)
          'prix_unitaire' =>'required',
          'prix_total' =>'required',
          'main_oevre' =>'required',
-         'montant_total' =>'required'
+         'montant_total' =>'required',
          'monaie' =>'required'
 
      ]);
@@ -100,7 +99,7 @@ public function store(Request $request)
      $Reparation->prix_unitaire= $request->prix_unitaire;
      $Reparation->prix_total= $request->nombre_piece*$request->prix_unitaire;
      $Reparation->main_oeuvre= $request->main_oeuvre;
-     $Reparation->montant_total= $request->prix_total+$request->main_oeuvre;
+     $Reparation->montant_total= $request->nombre_piece*$request->prix_unitairel+$request->main_oeuvre;
 
      $Reparation->save();
      return redirect('reparations');
@@ -164,7 +163,7 @@ return view('reparations/show',[
        'prix_unitaire' =>'required',
        'prix_total' =>'required',
        'main_oevre' =>'required',
-       'montant_total' =>'required'
+       'montant_total' =>'required',
        'monaie' =>'required'
      ]);
 
