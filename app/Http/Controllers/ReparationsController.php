@@ -82,9 +82,7 @@ public function store(Request $request)
          'piece' =>'required',
          'nombre_piece' =>'required',
          'prix_unitaire' =>'required',
-         'prix_total' =>'required',
          'main_oevre' =>'required',
-         'montant_total' =>'required',
          'monaie' =>'required'
 
      ]);
@@ -97,9 +95,9 @@ public function store(Request $request)
      $Reparation->piece= $request->piece;
      $Reparation->nombre_piece= $request->nombre_piece;
      $Reparation->prix_unitaire= $request->prix_unitaire;
-     $Reparation->prix_total= $request->nombre_piece*$request->prix_unitaire;
+     $Reparation->prix_total= $request->nombre_piece*$request->prix_unitaire=$request->prix_total;
      $Reparation->main_oeuvre= $request->main_oeuvre;
-     $Reparation->montant_total= $request->nombre_piece*$request->prix_unitairel+$request->main_oeuvre;
+     $Reparation->montant_total= $request->prix_total+$request->main_oeuvre;
 
      $Reparation->save();
      return redirect('reparations');
