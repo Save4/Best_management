@@ -187,6 +187,7 @@
                         <td>{{$Carburant->id}}</td>
                         <td>{{$Carburant->type_mission}}</td>
                         <td>{{$Carburant->nom_societe}}</td>
+                        <td>{{$Carburant->produit}}</td>
                         <td>{{$Carburant->quantite}}{{$Carburant->unite}}</td>
                         <td>{{$Carburant->prix_total}}{{$Carburant->monaie}}</td>
                         <td>
