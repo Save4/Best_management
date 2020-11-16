@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReparationsTable extends Migration
+class CreateCarburantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,30 +13,23 @@ class CreateReparationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reparations', function (Blueprint $table) {
+        Schema::create('carburants', function (Blueprint $table) {
           $table->bigIncrements('id');
-         $table->unsignedBigInteger('vehicule_id');
-         $table->unsignedBigInteger('chauffeur_id');
+         $table->unsignedBigInteger('mission_id');
          $table->unsignedBigInteger('fournisseur_id');
-        $table->string('type_reparation');
-        $table->string('piece');
-        $table->integer('nombre_piece');
+        $table->string('produit');
+        $table->integer('quantite');
         $table->integer('prix_unitaire');
         $table->integer('prix_total');
-        $table->integer('main_oeuvre');
-        $table->integer('montant_total');
+        $table->string('unite');
         $table->string('monaie');
         $table->timestamps();
-        $table->foreign('vehicule_id')
+        $table->foreign('mission_id')
                ->references('id')
-               ->on('vehicules')
+               ->on('missions')
                ->onUpdate('cascade')
                ->onDelete('cascade');
-        $table->foreign('chauffeur_id')
-               ->references('id')
-               ->on('chauffeurs')
-               ->onUpdate('cascade')
-               ->onDelete('cascade');
+
        $table->foreign('fournisseur_id')
                ->references('id')
                ->on('fournisseurs')
@@ -53,6 +46,6 @@ class CreateReparationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reparations');
+        Schema::dropIfExists('carburants');
     }
 }
