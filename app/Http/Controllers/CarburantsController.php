@@ -7,7 +7,7 @@ use App\Fournisseur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ConsommationsController extends Controller
+class CarburantsController extends Controller
 {
     function __construct()
     {
@@ -30,7 +30,7 @@ class ConsommationsController extends Controller
 
     'carburants'=> $carburants,
     'missions'=> $missions,
-    'fournisseur'=>$fournisseur
+    'fournisseurs'=>$fournisseurs
   ]);
 
 }
