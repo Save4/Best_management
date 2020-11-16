@@ -51,7 +51,7 @@
                               </div>
 
                               <div class="form-group row">
-                              <label class="col-form-label col-md-3 col-sm-3 label-align ">Fournisseurs :</label>
+                              <label class="col-form-label col-md-3 col-sm-3 label-align ">Fournisseur :</label>
                                 <div class="col-md-6 col-sm-6 ">
                                 <select name="fournisseur_id" id="" class="form-control" class="@error('fournisseur_id') is-invalid @enderror">
                                              @foreach($fournisseurs as $Fournisseur)
@@ -129,7 +129,7 @@
                       <label class="col-form-label col-md-3 col-sm-3 label-align ">Monaie :</label>
                         <div class="col-md-6 col-sm-6 ">
                         <select name="monaie" id="" class="form-control" class="@error('monaie') is-invalid @enderror">
-                                            <option value="{{$Reparation->id}}">FraBu</option>
+                                            <option value="">FraBu</option>
                                    </select>
                            </div>
                            </div>
