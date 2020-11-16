@@ -97,7 +97,10 @@ Route::post('fournisseurs/destroy/{Fournisseur}','FournisseursController@destroy
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> fournisseur
 
 
 Route::get('reparations','ReparationsController@index');
@@ -116,5 +119,9 @@ Route::get('carburants/edit/{Carburant}','CarburantsController@edit');
 Route::get('carburants/show/{Carburant}','CarburantsController@show');
 Route::put('carburants/{Carburant}','CarburantsController@update');
 Route::post('carburants/destroy/{Carburant}','CarburantsController@destroy');
+<<<<<<< HEAD
 >>>>>>> mission
 >>>>>>> categorie
+=======
+>>>>>>> carburant
+>>>>>>> fournisseur
