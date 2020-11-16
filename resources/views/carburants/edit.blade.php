@@ -18,7 +18,7 @@
   								</div>
   								<div class="x_content">
   									<br />
-  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/vehicules/{{$Vehicule->id}}" method="post">
+  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/carburants/{{$Carburant->id}}" method="post">
 
                       @csrf
                       @method('PUT')
@@ -59,7 +59,7 @@
               											</label>
               											<div class="col-md-6 col-sm-6 ">
               												<input type="text" name="produit" id="first-name" required="required" class="form-control " class="@error('produit') is-invalid @enderror"
-                                                 placeholder="Entre le produit" value="">
+                                                 placeholder="" value="{{ $Carburant->produit }}">
                                                  @error('produit')
                                           <button class="btn-danger">{{$message}}</button>
                                           @enderror
