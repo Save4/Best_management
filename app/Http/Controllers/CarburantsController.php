@@ -1,85 +1,138 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Carburant;
+use App\Carbuant;
+use App\Mission;
+use App\Fournisseur;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class CarburantsController extends Controller
+class ConsommationsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
     public function index()
-    {
-        //
-    }
+{
+    $carburants= DB::table('carburants')
+           ->join('missions', 'carburants.mission_id', 'missions.id')
+           ->join('fournisseurs', 'carburants.fournisseur_id', 'fournisseurs.id')
+           ->select('missions.*','fournisseurs.*','carburants.*')
+           ->get();
+           $missions = Mission::all();
+           $fournisseurs = Fournisseur::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+  return view('carburants/index',[
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    'carburants'=> $carburants,
+    'missions'=> $missions,
+    'fournisseur'=>$fournisseur
+  ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Carburant  $carburant
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Carburant $carburant)
-    {
-        //
-    }
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Carburant  $carburant
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Carburant $carburant)
-    {
-        //
-    }
+public function create()
+{
+    $missions = Mission::all();
+    $fournisseurs = Fournisseur::all();
+     return view('carburants/create',[
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Carburant  $carburant
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Carburant $carburant)
-    {
-        //
-    }
+        'missions'=>$missions,
+        'fournisseurs'=>$fournisseurs
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Carburant  $carburant
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Carburant $carburant)
-    {
-        //
-    }
+
+
+     }
+
+public function store(Request $request)
+{
+
+     //validation
+     $request->validate([
+         'mission_id' =>'required',
+         'fournisseur_id' =>'required',
+         'produit'=>'required',
+         'quantite' =>'required',
+         'prix_unitaire' =>'required',
+         'prix_total' =>'required',
+         'unite' =>'required',
+         'monaie' =>'required'
+
+     ]);
+
+     $Carburant= new Carburant();
+     $Carburant->mission_id= $request->mission_id;
+     $Carburant->fournisseur_id= $request->fournisseur_id;
+     $Carburant->produit= $request->produit;
+     $Carburant->quantite= $request->quantite;
+     $Carburant->prix_unitaire= $request->prix_unitaire;
+     $Carburant->prix_total= $request->quantite*$request->prix_uniteur;
+     $Carburant->unite= $request->unite;
+     $Carburant->monaie= $request->monaie;
+
+     $Carburant->save();
+     return redirect('carburants');
+}
+
+public function edit(Carburant $Carburant)
+{
+    # code...
+    $fournisseurs= Fournisseur::all();
+    $missions= Mission::all();
+    $Carburant=Carburant::find($Carburant->id);
+
+    return view('carburants/edit',[
+        'Carburant'=>$Carburant,
+        'missions'=> $missions,
+        'missions'=> $missions
+
+
+    ]);
+
+ }
+
+ public function update(Request $request, Carburant $Carburant)
+ {
+     # code...
+     $request->validate([
+       'mission_id' =>'required',
+       'fournisseur_id' =>'required',
+       'produit'=>'required',
+       'quantite' =>'required',
+       'prix_unitaire' =>'required',
+       'prix_total' =>'required',
+       'unite' =>'required',
+       'monaie' =>'required'
+
+     ]);
+
+     $Carburant->mission_id= $request->mission_id;
+     $Carburant->fournisseur_id= $request->fournisseur_id;
+     $Carburant->produit= $request->produit;
+     $Carburant->quantite= $request->quantite;
+     $Carburant->prix_unitaire= $request->prix_unitaire;
+     $Carburant->prix_total= $request->quantite*$request->prix_uniteur;
+     $Carburant->unite= $request->unite;
+     $Carburant->monaie= $request->monaie;
+
+    $Carburant->save();
+    return redirect('carburants');
+
+ }
+
+ public function destroy(Carburant $Carburant)
+ {
+     # code...
+     $Carburant= Carburant::find($Carburant->id);
+     $Carburant->delete();
+     return redirect('carburants');
+
+ }
+
+
 }
