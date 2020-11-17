@@ -27,7 +27,8 @@
                            <div class="col-md-6 col-sm-6 ">
                            <select name="mission_id" id="marque_id" class="form-control">
                              @foreach($missions as $Mission)
-                             <option value="{{$Mission->id}}">{{$Mission->type_mission}}</option>
+                             <option value="{{$Mission->id}}" {!! $Carburant->mission_id==$Mission->id ?'selected="selected"':''  !!}>{{$Mission->type_mission}}</option>
+
                              @endforeach
                              @error('mission_id')
 
@@ -45,7 +46,7 @@
                                <div class="col-md-6 col-sm-6 ">
                                <select name="fournisseur_id" id="modele_id" class="select2_single form-control" tabindex="-1" class="@error('fournisseur_id') is-invalid @enderror">
                                           @foreach($fournisseurs as $Fournisseur)
-                                                   <option value="{{$Fournisseur->id}}">{{$Fournisseur->nom_societe}}</option>
+                                                   <option value="{{$Fournisseur->id}}" {!! $Carburant->fournisseur_id==$Fournisseur->id ?'selected="selected"':''  !!}>{{$Fournisseur->nom_societe}}</option>
                                                      @endforeach
                                           </select>
                                                      @error('fournisseur_id')
