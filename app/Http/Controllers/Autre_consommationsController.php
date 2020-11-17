@@ -134,7 +134,7 @@ return view('autre_consommations/show',[
      $Autre_consommation->type_consommation= $request->type_consommation;
      $Autre_consommation->montant= $request->montant;
      $Autre_consommation->monaie= $request->monaie;
-    $Vehicule->save();
+    $Autre_consommation->save();
     return redirect('autre_consommations');
 
  }
