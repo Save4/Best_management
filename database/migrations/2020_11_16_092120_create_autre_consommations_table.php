@@ -19,6 +19,7 @@ class CreateAutreConsommationsTable extends Migration
          $table->unsignedBigInteger('fournisseur_id');
          $table->string('type_consommation');
          $table->integer('montant');
+         $table->string('monaie');
          $table->string('date_fin');
          $table->timestamps();
          $table->foreign('vehicule_id')
