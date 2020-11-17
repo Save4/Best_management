@@ -82,7 +82,7 @@ public function store(Request $request)
      $Reparation->prix_unitaire= $request->prix_unitaire;
      $Reparation->prix_total= $request->nombre_piece*$request->prix_unitaire;
      $Reparation->main_oeuvre= $request->main_oeuvre;
-     $Reparation->montant_total= $request->prix_total+$request->main_oeuvre;
+     $Reparation->montant_total= ($request->nombre_piece*$request->prix_unitaire)+$request->main_oeuvre;
      $Reparation->monaie= $request->monaie;
 
      $Reparation->save();
@@ -111,17 +111,17 @@ return view('reparations/show',[
 
 }
 
-public function edit(Carburant $Carburant)
+public function edit(Reparation $Reparation)
 {
     # code...
    $vehicules = Vehicule::all();
    $chauffeurs = Chauffeur::all();
    $fournisseurs = Fournisseur::all();
 
-   $Reparations=Reparations::find($Reparations->id);
+   $Reparation=Reparation::find($Reparation->id);
 
     return view('reparations/edit',[
-    'reparations'=> $reparations,
+    'Reparation'=> $Reparation,
     'vehicules'=> $vehicules,
     'chauffeurs'=> $chauffeurs,
     'fournisseurs'=>$fournisseurs
@@ -156,11 +156,11 @@ public function edit(Carburant $Carburant)
      $Reparation->prix_unitaire= $request->prix_unitaire;
      $Reparation->prix_total= $request->nombre_piece*$request->prix_unitaire;
      $Reparation->main_oeuvre= $request->main_oeuvre;
-     $Reparation->montant_total= $request->prix_total+$request->main_oeuvre;
+     $Reparation->montant_total= ($request->nombre_piece*$request->prix_unitaire)+$request->main_oeuvre;
      $Reparation->monaie= $request->monaie;
 
     $Reparation->save();
-    return redirect('carburants');
+    return redirect('reparations');
 
  }
 
