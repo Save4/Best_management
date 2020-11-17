@@ -94,3 +94,13 @@ Route::get('fournisseurs/edit/{Fournisseur}','FournisseursController@edit');
 Route::get('fournisseurs/show/{Fournisseur}','FournisseursController@show');
 Route::put('fournisseurs/{Fournisseur}','FournisseursController@update');
 Route::post('fournisseurs/destroy/{Fournisseur}','FournisseursController@destroy');
+
+
+Route::get('autre_consommations','Autre_consommationsController@index');
+Route::get('autre_consommations/create','Autre_consommationsController@create');
+Route::post('autre_consommations','Autre_consommationsController@store');
+Route::get('autre_consommations/edit/{Autre_consommation}','Autre_consommationsController@edit');
+Route::get('autre_consommations/show/{Autre_consommation}','Autre_consommationsController@show');
+Route::put('autre_consommations/{Autre_consommation}','Autre_consommationsController@update');
+Route::post('autre_consommations/destroy/{Autre_consommation}','Autre_consommationsController@destroy');
+
