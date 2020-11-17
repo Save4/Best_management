@@ -94,8 +94,6 @@ Route::get('fournisseurs/edit/{Fournisseur}','FournisseursController@edit');
 Route::get('fournisseurs/show/{Fournisseur}','FournisseursController@show');
 Route::put('fournisseurs/{Fournisseur}','FournisseursController@update');
 Route::post('fournisseurs/destroy/{Fournisseur}','FournisseursController@destroy');
-<<<<<<< HEAD
-=======
 
 
 
@@ -107,4 +105,3 @@ Route::get('carburants/edit/{Carburant}','CarburantsController@edit');
 Route::get('carburants/show/{Carburant}','CarburantsController@show');
 Route::put('carburants/{Carburant}','CarburantsController@update');
 Route::post('carburants/destroy/{Carburant}','CarburantsController@destroy');
->>>>>>> carburant
