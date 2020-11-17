@@ -38,7 +38,7 @@
                       <li><a href="{{url('fournisseurs')}}">Fournisseurs</a></li>
                       <li><a href="e{{url('reparations')}}">Reparation</a></li>
                       <li><a href="{{url('carburents')}}">Carburent</a></li>
-                      <li><a href="{{url('assurences')}}">Impot ou taxe ou assurence</a></li>
+                      <li><a href="{{url('autre_consommations')}}">Impot ou taxe ou assurence</a></li>
 
                     </ul>
                   </li>
