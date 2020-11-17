@@ -30,7 +30,7 @@
                         <div class="col-md-6 col-sm-6 ">
                         <select name="vehicule_id" id="" class="form-control" class="@error('vehicule_id') is-invalid @enderror">
                                      @foreach($vehicules as $Vehicule)
-                                            <option value="{{$Vehicule->id}}">{{$Vehicule->plaque}}</option>
+                                            <option value="{{$Vehicule->id}}" {!! $Mission->vehicule_id==$Vehicule->id ?'selected="selected"':''  !!}>{{$Vehicule->plaque}}</option>
                                               @endforeach
                                    </select>
                                               @error('vehicule_id')
@@ -43,7 +43,8 @@
                              <div class="col-md-6 col-sm-6 ">
                              <select name="chauffeur_id" id="" class="form-control" class="@error('chauffeur_id') is-invalid @enderror">
                                           @foreach($chauffeurs as $Chauffeur)
-                                                 <option value="{{$Chauffeur->id}}">{{$Chauffeur->nom}} {{$Chauffeur->prenom}}</option>
+                                                 <option value="{{$Chauffeur->id}}" {!! $Mission->chauffeur_id==$Chauffeur->id ?'selected="selected"':''  !!}>{{$Chauffeur->nom}} {{$Chauffeur->prenom}}</option>
+
                                                    @endforeach
                                         </select>
                                                    @error('chauffeur_id')
@@ -70,7 +71,7 @@
                                        </label>
                                        <div class="col-md-6 col-sm-6 ">
                                          <input type="text" name="type_mission" id="first-name" required="required" class="form-control " class="@error('type_mission') is-invalid @enderror"
-                                                    placeholder="Entre la misssion" value="">
+                                                    placeholder="" value="{{$Mission->type_mission}}">
                                                     @error('type_mission')
                                              <button class="btn-danger">{{$message}}</button>
                                              @enderror
@@ -81,8 +82,8 @@
                  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Debut :<span class="required"></span>
                  											</label>
                  											<div class="col-md-6 col-sm-6 ">
-                 												<input type="date" name="date_debut" id="first-name" required="required" class="form-control " class="@error('date_debut') is-invalid @enderror"
-                                                    placeholder="" value="">
+                 												<input type="text" name="date_debut" id="first-name" required="required" class="form-control " class="@error('date_debut') is-invalid @enderror"
+                                                    placeholder="" value="{{$Mission->date_debut}}">
                                                     @error('date_debut')
                                              <button class="btn-danger">{{$message}}</button>
                                              @enderror
@@ -93,8 +94,8 @@
                       	<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Fin :<span class="required"></span>
                       	</label>
                       	<div class="col-md-6 col-sm-6 ">
-                      		<input type="date" name="date_fin" id="first-name" required="required" class="form-control " class="@error('date_fin') is-invalid @enderror"
-                                     placeholder="" value="">
+                      		<input type="text" name="date_fin" id="first-name" required="required" class="form-control " class="@error('date_fin') is-invalid @enderror"
+                                     placeholder="" value="{{$Mission->date_debut}}">
                                      @error('date_fin')
                               <button class="btn-danger">{{$message}}</button>
                               @enderror
