@@ -172,6 +172,7 @@
                       <tbody>
                     @foreach($autre_consommations as $Autre_consommation)
                     <tr>
+<<<<<<< HEAD:resources/views/autre_consommations/index.blade.php
                         <td>{{$Autre_consommation->id}}</td>
                         <td>{{$Autre_consommation->plaque}}</td>
                         <td>{{$Autre_consommation->nom_societe}}</td>
@@ -179,6 +180,14 @@
                         <td>{{$Autre_consommation->montant}}{{$Autre_consommation->monaie}}</td>
                         <td>{{$Autre_consommation->created_at}}</td>
                         <td>{{$Autre_consommation->date_fin}}</td>
+=======
+                        <td>{{$Carburant->id}}</td>
+                        <td>{{$Carburant->type_mission}}</td>
+                        <td>{{$Carburant->nom_societe}}</td>
+                        <td>{{$Carburant->produit}}</td>
+                        <td>{{$Carburant->quantite}}{{$Carburant->unite}}</td>
+                        <td>{{$Carburant->prix_total}}{{$Carburant->monaie}}</td>
+>>>>>>> mission:resources/views/carburants/index.blade.php
                         <td>
                           <button>  <a href="autre_consommations/edit/{{$Autre_consommation->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                         </button></td>

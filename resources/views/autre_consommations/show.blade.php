@@ -36,6 +36,7 @@
 
 
           <tbody>
+<<<<<<< HEAD:resources/views/autre_consommations/show.blade.php
             @foreach($autre_consommations as $Autre_consommation)
                     <tr>
                         <td>{{$Autre_consommation->id}}</td>
@@ -46,6 +47,16 @@
                         <td>{{$Autre_consommation->created_at}}</td>
                         <td>{{$Autre_consommation->date_fin}}</td>
                         
+=======
+            @foreach($carburants as $Carburant)
+            <tr>
+                <td>{{$Carburant->id}}</td>
+                <td>{{$Carburant->type_mission}}</td>
+                <td>{{$Carburant->nom_societe}}</td>
+                <td>{{$Carburant->produit}}</td>
+                <td>{{$Carburant->quantite}}{{$Carburant->unite}}</td>
+                <td>{{$Carburant->prix_total}}{{$Carburant->monaie}}</td>
+>>>>>>> mission:resources/views/carburants/show.blade.php
         </tr>
             @endforeach
 
