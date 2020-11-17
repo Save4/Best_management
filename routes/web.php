@@ -96,13 +96,6 @@ Route::put('fournisseurs/{Fournisseur}','FournisseursController@update');
 Route::post('fournisseurs/destroy/{Fournisseur}','FournisseursController@destroy');
 
 
-Route::get('reparations','ReparationsController@index');
-Route::get('reparations/create','ReparationsController@create');
-Route::post('reparations','ReparationsController@store');
-Route::get('reparations/edit/{Reparation}','ReparationsController@edit');
-Route::get('reparations/show/{Reparation}','ReparationsController@show');
-Route::put('reparations/{Reparation}','ReparationsController@update');
-Route::post('reparations/destroy/{Reparation}','ReparationsController@destroy');
 
 
 Route::get('carburants','CarburantsController@index');
