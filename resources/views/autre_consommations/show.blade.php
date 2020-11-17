@@ -25,23 +25,38 @@
           <thead>
         <tr>
           <th>ID</th>
-          <th>Type de mission</th>
-          <th>Fournisseur</th>
-          <th>Produit</th>
-          <th>Quantite</th>
-          <th>Prix</th>
+                        <th>Plaque</th>
+                        <th>Fournisseur</th>
+                        <th>Type de consommation</th>
+                        <th>Montant</th>
+                        <th>Date d'enregistrement</th>
+                        <th>Date de fin de validite</th>
         </tr>
         </thead>
 
 
           <tbody>
+<<<<<<< HEAD:resources/views/autre_consommations/show.blade.php
+            @foreach($autre_consommations as $Autre_consommation)
+                    <tr>
+                        <td>{{$Autre_consommation->id}}</td>
+                        <td>{{$Autre_consommation->plaque}}</td>
+                        <td>{{$Autre_consommation->nom_societe}}</td>
+                        <td>{{$Autre_consommation->type_consommation}}</td>
+                        <td>{{$Autre_consommation->montant}}{{$Autre_consommation->monaie}}</td>
+                        <td>{{$Autre_consommation->created_at}}</td>
+                        <td>{{$Autre_consommation->date_fin}}</td>
+                        
+=======
             @foreach($carburants as $Carburant)
             <tr>
                 <td>{{$Carburant->id}}</td>
                 <td>{{$Carburant->type_mission}}</td>
                 <td>{{$Carburant->nom_societe}}</td>
+                <td>{{$Carburant->produit}}</td>
                 <td>{{$Carburant->quantite}}{{$Carburant->unite}}</td>
                 <td>{{$Carburant->prix_total}}{{$Carburant->monaie}}</td>
+>>>>>>> mission:resources/views/carburants/show.blade.php
         </tr>
             @endforeach
 

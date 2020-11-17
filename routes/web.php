@@ -96,6 +96,7 @@ Route::put('fournisseurs/{Fournisseur}','FournisseursController@update');
 Route::post('fournisseurs/destroy/{Fournisseur}','FournisseursController@destroy');
 
 
+
 Route::get('carburants','CarburantsController@index');
 Route::get('carburants/create','CarburantsController@create');
 Route::post('carburants','CarburantsController@store');

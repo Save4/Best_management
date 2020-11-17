@@ -7,7 +7,7 @@
   						<div class="col-md-12 col-sm-12 ">
   							<div class="x_panel">
   								<div class="x_title">
-  									<h2>Add carburant</small></h2>
+  									<h2>Add reparation</small></h2>
   									<ul class="nav navbar-right panel_toolbox">
   										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
   										</li>
@@ -19,19 +19,19 @@
   								</div>
   								<div class="x_content">
   									<br />
-  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('carburants')}}" method="POST">
+  									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('reparations')}}" method="POST">
 
                                              @csrf
 
                  <div class="form-group row">
-                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Mission :</label>
+                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Vehicule :</label>
                       <div class="col-md-6 col-sm-6 ">
-                      <select name="mission_id" id="marque_id" class="form-control">
+                      <select name="vehicule_id" id="marque_id" class="form-control">
                           <option></option>
-                        @foreach($missions as $Mission)
-                        <option value="{{$Mission->id}}">{{$Mission->type_mission}}</option>
+                        @foreach($vehicules as $Vehicule)
+                        <option value="{{$Vehicule->id}}">{{$Vehicule->plaque}}</option>
                         @endforeach
-                        @error('mission_id')
+                        @error('vehicule_id')
 
                         <div class="alert alert-danger">{{$message}}</div>
                         @enderror
@@ -42,6 +42,28 @@
 
                             </div>
                         </div>
+
+
+                 <div class="form-group row">
+                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Chauffeur :</label>
+                      <div class="col-md-6 col-sm-6 ">
+                      <select name="chauffeur_id" id="marque_id" class="form-control">
+                          <option></option>
+                        @foreach($chauffeurs as $Chauffeur)
+                        <option value="{{$Chauffeur->id}}">{{$Chauffeur->nom}} {{$Chauffeur->prenom}}</option>
+                        @endforeach
+                        @error('chauffeur_id')
+
+                        <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
+
+
+
+                         </select>
+
+                            </div>
+                        </div>
+
 
                     <div class="form-group row">
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Fournisseur :</label>
@@ -60,12 +82,12 @@
 
 
   										<div class="item form-group">
-  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Produit :<span class="required"></span>
+  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Type de reparation :<span class="required"></span>
   											</label>
   											<div class="col-md-6 col-sm-6 ">
-  												<input type="text" name="produit" id="first-name" required="required" class="form-control " class="@error('produit') is-invalid @enderror"
-                                     placeholder="Entre le produit" value="">
-                                     @error('produit')
+  												<input type="text" name="type_reparation" id="first-name" required="required" class="form-control " class="@error('type_reparation') is-invalid @enderror"
+                                     placeholder="Entre le type de reparation" value="">
+                                     @error('type_reparation')
                               <button class="btn-danger">{{$message}}</button>
                               @enderror
   											</div>
@@ -73,30 +95,32 @@
 
 
                       <div class="item form-group">
-  											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Quantite :<span class="required"></span>
-  											</label>
-  											<div class="col-md-6 col-sm-6 ">
-  												<input type="number" name="quantite" id="first-name" required="required" class="form-control " class="@error('quantite') is-invalid @enderror"
-                                     placeholder="Entre la quantite" value="">
-                                     @error('quantite')
-                              <button class="btn-danger">{{$message}}</button>
-                              @enderror
-  											</div>
-  										</div>
-
-
-                      <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Unite :<span class="required"></span>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Piece :<span class="required"></span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                           <select name="unite" id="" class="form-control">
-
-                             <option>L</option>
-
-
-                        </select>
+                          <input type="text" name="piece" id="first-name" required="required" class="form-control " class="@error('piece') is-invalid @enderror"
+                                     placeholder="Entre le type de piece" value="">
+                                     @error('piece')
+                              <button class="btn-danger">{{$message}}</button>
+                              @enderror
                         </div>
                       </div>
+
+
+
+
+                      <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre de piece :<span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                          <input type="number" name="nombre_piece" id="first-name" required="required" class="form-control " class="@error('nombre_piece') is-invalid @enderror"
+                                     placeholder="Entre le nombre de piece" value="">
+                                     @error('nombre_piece')
+                              <button class="btn-danger">{{$message}}</button>
+                              @enderror
+                        </div>
+                      </div>
+
 
                       <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Prix unitaire :<span class="required"></span>
@@ -110,6 +134,17 @@
                         </div>
                       </div>
 
+                       <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Main d'oeuvre :<span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                          <input type="number" name="main_oeuvre" id="first-name" required="required" class="form-control " class="@error('main_oeuvre') is-invalid @enderror"
+                                     placeholder="Entre le main d'oeuvre" value="">
+                                     @error('main_oeuvre')
+                              <button class="btn-danger">{{$message}}</button>
+                              @enderror
+                        </div>
+                      </div>
 
 
                       <div class="item form-group">
@@ -125,6 +160,7 @@
                         </div>
                       </div>
 
+                      
 
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
@@ -149,7 +185,7 @@
               <div class="col-md-12 col-sm-12 ">
                               <div class="x_panel">
                                 <div class="x_title">
-                                  <h2>Liste des consommations du carburant</small></h2>
+                                  <h2>Liste des reparations</small></h2>
                                   <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -169,11 +205,15 @@
                       <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Type de mission</th>
+                        <th>Plaque</th>
+                        <th>Chauffeur</th>
                         <th>Fournisseur</th>
-                        <th>Produit</th>
-                        <th>Quantite</th>
+                        <th>Type de reparation</th>
+                        <th>Piece</th>
+                        <th>Nombre de piece</th>
                         <th>Prix</th>
+                        <th>Montant total</th>
+                        <th>Date d'enregistrement</th>
                         <th>Edit</th>
                         <th>Delete</th>
 
@@ -182,19 +222,24 @@
 
 
                       <tbody>
-                    @foreach($carburants as $Carburant)
+                    @foreach($reparations as $Reparation)
                     <tr>
-                        <td>{{$Carburant->id}}</td>
-                        <td>{{$Carburant->type_mission}}</td>
-                        <td>{{$Carburant->nom_societe}}</td>
-                        <td>{{$Carburant->quantite}}{{$Carburant->unite}}</td>
-                        <td>{{$Carburant->prix_total}}{{$Carburant->monaie}}</td>
+                        <td>{{$Reparation->id}}</td>
+                        <td>{{$Reparation->plaque}}</td>
+                        <td>{{$Reparation->nom}} {{$Reparation->prenom}}</td>
+                        <td>{{$Reparation->nom_societe}}</td>
+                        <td>{{$Reparation->type_reparation}}</td>
+                        <td>{{$Reparation->piece}}</td>
+                        <td>{{$Reparation->nombre_piece}}</td>
+                        <td>{{$Reparation->prix_total}}{{$Reparation->monaie}}</td>
+                        <td>{{$Reparation->montant_total}}{{$Reparation->monaie}}</td>
+                        <td>{{$Reparation->created_at}}</td>
                         <td>
-                          <button>  <a href="carburants/edit/{{$Carburant->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                          <button>  <a href="reparations/edit/{{$Reparation->id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                         </button></td>
                         <td>
 
-                          <form action="carburants/destroy/{{$Carburant->id}}" method="post" class="form-inline">
+                          <form action="reparations/destroy/{{$Reparation->id}}" method="post" class="form-inline">
                           @csrf
                            <button type="submit" onclick="return confirm('Supprimer?')" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                          </form>
@@ -204,7 +249,7 @@
                     </tr>
 
                         @endforeach
-                        <a href="{{url('carburants/show/{Carburant}')}}" class="btn btn-round btn-success btn-xs">Rapport</a>
+                        <a href="{{url('reparations/show/{Reparation}')}}" class="btn btn-round btn-success btn-xs">Rapport</a>
 
                       </tbody>
                     </table>

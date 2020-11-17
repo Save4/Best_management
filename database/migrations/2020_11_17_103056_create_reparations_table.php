@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCarburantsTable extends Migration
+class CreateReparationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,29 +13,35 @@ class CreateCarburantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('carburants', function (Blueprint $table) {
-          $table->bigIncrements('id');
-         $table->unsignedBigInteger('mission_id');
+        Schema::create('reparations', function (Blueprint $table) {
+            $table->bigIncrements('id');
+         $table->unsignedBigInteger('vehicule_id');
+         $table->unsignedBigInteger('chauffeur_id');
          $table->unsignedBigInteger('fournisseur_id');
-        $table->string('produit');
-        $table->integer('quantite');
+        $table->string('type_reparation');
+        $table->string('piece');
+        $table->integer('nombre_piece');
         $table->integer('prix_unitaire');
         $table->integer('prix_total');
-        $table->string('unite');
+        $table->integer('main_oeuvre');
+        $table->integer('montant_total');
         $table->string('monaie');
         $table->timestamps();
-        $table->foreign('mission_id')
+        $table->foreign('vehicule_id')
                ->references('id')
-               ->on('missions')
+               ->on('vehicules')
                ->onUpdate('cascade')
                ->onDelete('cascade');
-
+        $table->foreign('chauffeur_id')
+               ->references('id')
+               ->on('chauffeurs')
+               ->onUpdate('cascade')
+               ->onDelete('cascade');
        $table->foreign('fournisseur_id')
                ->references('id')
                ->on('fournisseurs')
                ->onUpdate('cascade')
                ->onDelete('cascade');
-
         });
     }
 
@@ -46,6 +52,6 @@ class CreateCarburantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carburants');
+        Schema::dropIfExists('reparations');
     }
 }
