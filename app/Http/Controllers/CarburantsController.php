@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Carbuant;
+use App\Carburant;
 use App\Mission;
 use App\Fournisseur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ConsommationsController extends Controller
+class CarburantsController extends Controller
 {
     function __construct()
     {
@@ -30,7 +30,7 @@ class ConsommationsController extends Controller
 
     'carburants'=> $carburants,
     'missions'=> $missions,
-    'fournisseur'=>$fournisseur
+    'fournisseurs'=>$fournisseurs
   ]);
 
 }
@@ -59,7 +59,6 @@ public function store(Request $request)
          'produit'=>'required',
          'quantite' =>'required',
          'prix_unitaire' =>'required',
-         'prix_total' =>'required',
          'unite' =>'required',
          'monaie' =>'required'
 
@@ -71,12 +70,31 @@ public function store(Request $request)
      $Carburant->produit= $request->produit;
      $Carburant->quantite= $request->quantite;
      $Carburant->prix_unitaire= $request->prix_unitaire;
-     $Carburant->prix_total= $request->quantite*$request->prix_uniteur;
+     $Carburant->prix_total= $request->quantite*$request->prix_unitaire;
      $Carburant->unite= $request->unite;
      $Carburant->monaie= $request->monaie;
 
      $Carburant->save();
      return redirect('carburants');
+}
+
+public function show()
+{
+$carburants= DB::table('carburants')
+       ->join('missions', 'carburants.mission_id', 'missions.id')
+       ->join('fournisseurs', 'carburants.fournisseur_id', 'fournisseurs.id')
+       ->select('missions.*','fournisseurs.*','carburants.*')
+       ->get();
+       $missions = Mission::all();
+       $fournisseurs = Fournisseur::all();
+
+return view('carburants/show',[
+
+'carburants'=> $carburants,
+'missions'=> $missions,
+'fournisseurs'=>$fournisseurs
+]);
+
 }
 
 public function edit(Carburant $Carburant)
@@ -89,7 +107,7 @@ public function edit(Carburant $Carburant)
     return view('carburants/edit',[
         'Carburant'=>$Carburant,
         'missions'=> $missions,
-        'missions'=> $missions
+        'fournisseurs'=> $fournisseurs
 
 
     ]);
@@ -105,7 +123,6 @@ public function edit(Carburant $Carburant)
        'produit'=>'required',
        'quantite' =>'required',
        'prix_unitaire' =>'required',
-       'prix_total' =>'required',
        'unite' =>'required',
        'monaie' =>'required'
 
@@ -116,7 +133,7 @@ public function edit(Carburant $Carburant)
      $Carburant->produit= $request->produit;
      $Carburant->quantite= $request->quantite;
      $Carburant->prix_unitaire= $request->prix_unitaire;
-     $Carburant->prix_total= $request->quantite*$request->prix_uniteur;
+     $Carburant->prix_total= $request->quantite*$request->prix_unitaire;
      $Carburant->unite= $request->unite;
      $Carburant->monaie= $request->monaie;
 
