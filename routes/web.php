@@ -58,7 +58,7 @@ Route::get('vehicules/show/{Vehicule}','VehiculesController@show');
 Route::put('vehicules/{Vehicule}','VehiculesController@update');
 Route::post('vehicules/destroy/{Vehicule}','VehiculesController@destroy');
 
-//Route::get('vehicules/chargeMarque', 'VehiculesController@chargeMarque');
+Route::get('vehicules/chargeMarque', 'VehiculesController@chargeMarque');
 
 
 Route::get('departements','DepartementsController@index');
@@ -107,15 +107,6 @@ Route::put('carburants/{Carburant}','CarburantsController@update');
 Route::post('carburants/destroy/{Carburant}','CarburantsController@destroy');
 
 
-Route::get('reparations','ReparationsController@index');
-Route::get('reparations/create','ReparationsController@create');
-Route::post('reparations','ReparationsController@store');
-Route::get('reparations/edit/{Reparation}','ReparationsController@edit');
-Route::get('reparations/show/{Reparation}','ReparationsController@show');
-Route::put('reparations/{Reparation}','ReparationsController@update');
-Route::post('reparations/destroy/{Reparation}','ReparationsController@destroy');
-
-
 
 Route::get('autre_consommations','Autre_consommationsController@index');
 Route::get('autre_consommations/create','Autre_consommationsController@create');
@@ -124,3 +115,14 @@ Route::get('autre_consommations/edit/{Autre_consommation}','Autre_consommationsC
 Route::get('autre_consommations/show/{Autre_consommation}','Autre_consommationsController@show');
 Route::put('autre_consommations/{Autre_consommation}','Autre_consommationsController@update');
 Route::post('autre_consommations/destroy/{Autre_consommation}','Autre_consommationsController@destroy');
+
+
+
+
+Route::get('reparations','ReparationsController@index');
+Route::get('reparations/create','ReparationsController@create');
+Route::post('reparations','ReparationsController@store');
+Route::get('reparations/edit/{Reparation}','ReparationsController@edit');
+Route::get('reparations/show/{Reparation}','ReparationsController@show');
+Route::put('reparations/{Reparation}','ReparationsController@update');
+Route::post('reparations/destroy/{Reparation}','ReparationsController@destroy');
