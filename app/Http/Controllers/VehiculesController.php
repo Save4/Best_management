@@ -42,17 +42,10 @@ class VehiculesController extends Controller
 public function create()
 {
     $modeles = Modele::all();
-    $marques = Marque::all();
     $categories = Categorie::all();
-    $vehicules= DB::table('vehicules')
-           ->join('categories', 'vehicules.categorie_id', 'categories.id')
-           ->join('modeles', 'vehicules.modele_id', 'modeles.id')
-           ->join('marques', 'modeles.marque_id', 'marques.id')
-           ->select('marques.*','modeles.*','categories.*','vehicules.*')
-           ->get();
+
      return view('vehicules/create',[
 
-       'marques'=>$marques,
         'modeles'=>$modeles,
         'categories'=>$categories
         ]);
@@ -157,18 +150,20 @@ return view('vehicules/show',[
 
  public function chargeMarque(Request $request)
     {
-        if ($request->has('modele_id')) {
-            $modele_id = $request->get('modele_id');
-               $modeles = DB::table('modeles')
-                 ->join('marques', 'modeles.marque_id', 'marques.id')
-                 ->where('modeles.id', '=', $modele_id)
+        if ($request->has('marque_id')) {
+            $marque_id = $request->get('marque_id');
+               $modeles = DB::table('marques')
+                 ->join('modeles', 'modeles.marque_id', 'marques.id')
+                 ->where('marques.id', '=', $marque_id)
                  ->get();
         }
         return view('vehicules/chargeMarque', [
-            'marques' => $marques
+            'modeles' => $modeles
 
         ]);
     }
+
+
 
 
 }

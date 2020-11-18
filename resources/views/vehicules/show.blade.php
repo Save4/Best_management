@@ -8,7 +8,7 @@
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
-          
+
           <li><a class="close-link"><i class="fa fa-close"></i></a>
           </li>
         </ul>
@@ -32,6 +32,8 @@
           <th>Boite de vitesse</th>
           <th>Plaque</th>
           <th>Nombre de place</th>
+          <th>Creation</th>
+          <th>Modification</th>
         </tr>
         </thead>
 
@@ -47,6 +49,8 @@
           <td>{{$Vehicule->boite_vitesse}}</td>
           <td>{{$Vehicule->plaque}}</td>
           <td>{{$Vehicule->nombre_place}}</td>
+          <td>{{$Vehicule->created_at}}</td>
+          <td>{{$Vehicule->updated_at}}</td>
         </tr>
             @endforeach
 
