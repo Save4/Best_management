@@ -27,15 +27,14 @@
                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="marque_id" id="marque_id" class="form-control">
-                          <option></option>
-                        @foreach($marques as $Marque)
+                        <option value="0" disabled="true" selected="true">Selectionner la marque</option>
+                       @foreach($marques as $Marque)
                         <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
-                        @endforeach
-                        @error('marque_id')
+                             @endforeach
+                             @error('marque_id')
 
-                        <div class="alert alert-danger">{{$message}}</div>
-                        @enderror
-
+                       <div class="alert alert-danger">{{$message}}</div>
+                             @enderror
 
 
                          </select>
@@ -47,14 +46,17 @@
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Modele :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="modele_id" id="modele_id" class="select2_single form-control" tabindex="-1" class="@error('modele_id') is-invalid @enderror">
-                        <option></option>
-                                 @foreach($modeles as $Modele)
-                                          <option value="{{$Modele->id}}">{{$Modele->nom_modele}}</option>
-                                            @endforeach
-                                 </select>
-                                            @error('modele_id')
-                             <button class="btn-danger">{{$message}}</button>
-                                            @enderror
+                        <option value="0" disabled="true" selected="true">Selectionner le modele</option>
+                        @foreach($modeles as $Modele)
+                                 <option value="{{$Modele->id}}">{{$Modele->nom_modele}}</option>
+                                   @endforeach
+                                   @error('modele_id')
+                        <button class="btn-danger">{{$message}}</button>
+                                   @enderror
+
+
+                                          </select>
+
                          </div>
                          </div>
 
@@ -62,7 +64,7 @@
                          <label class="col-form-label col-md-3 col-sm-3 label-align ">Categorie :</label>
                            <div class="col-md-6 col-sm-6 ">
                            <select name="categorie_id" id="" class="select2_single form-control" tabindex="-1" class="@error('categorie_id') is-invalid @enderror">
-                             <option></option>
+                             <option value="0" disabled="true" selected="true">Selectionner la categorie</option>
                                         @foreach($categories as $Categorie)
                                                <option value="{{$Categorie->id}}">{{$Categorie->nom_categorie}}</option>
                                                  @endforeach
@@ -77,7 +79,7 @@
   											</label>
   											<div class="col-md-6 col-sm-6 ">
   												<input type="text" name="plaque" id="first-name" required="required" class="form-control " class="@error('plaque') is-invalid @enderror"
-                                     placeholder="Entre le plaque" value="">
+                                     placeholder="Entre la plaque" value="">
                                      @error('plaque')
                               <button class="btn-danger">{{$message}}</button>
                               @enderror
@@ -89,7 +91,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                            <select name="boite_vitesse" id="" class="form-control">
-
+                             <option value="0" disabled="true" selected="true">Selectionner la boite de vitesse</option>
                              <option>Manuel</option>
                             <option>Automatique</option>
                           </select>
@@ -102,7 +104,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                            <select name="type_moteur" id="" class="form-control">
-
+<option value="0" disabled="true" selected="true">Selectionner le type de moteur</option>
                              <option>Moteur a essance</option>
                              <option>Moteur a diesel</option>
                             <option>Moteur electrique</option>
@@ -141,6 +143,7 @@
   							</div>
   						</div>
 
+              <div class="row">
 
 
               <div class="col-md-12 col-sm-12 ">
@@ -150,7 +153,7 @@
                                   <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
-                                    
+
                                     <li><a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                   </ul>
