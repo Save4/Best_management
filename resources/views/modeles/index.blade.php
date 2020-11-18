@@ -27,7 +27,7 @@
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Marque :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="marque_id" id="" class="select2_single form-control" tabindex="-1" class="@error('marque_id') is-invalid @enderror">
-                        <option></option>
+                          <option value="0" disabled="true" selected="true">Selectionner la marque</option>
                                    @foreach($marques as $Marque)
                                           <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
                                             @endforeach
@@ -67,6 +67,7 @@
   							</div>
   						</div>
 
+              <div class="row">
 
 
               <div class="col-md-12 col-sm-12 ">
@@ -76,7 +77,7 @@
                                   <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
-                                  
+
                                     <li><a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                   </ul>
@@ -130,6 +131,7 @@
               </div>
             </div>
           </div>
+        </div>
             </div>
 
 

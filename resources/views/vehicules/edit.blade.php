@@ -10,7 +10,7 @@
   									<ul class="nav navbar-right panel_toolbox">
   										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
   										</li>
-  										
+
   										<li><a class="close-link"><i class="fa fa-close"></i></a>
   										</li>
   									</ul>
@@ -23,12 +23,12 @@
                       @csrf
                       @method('PUT')
                       <div class="form-group row">
-                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Selectionne la marque :</label>
+                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Modele :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="modele_id" id="" class="select2_single form-control" tabindex="-1" class="@error('modele_id') is-invalid @enderror">
                         <option></option>
                                    @foreach($modeles as $Modele)
-                                          <option value="{{$Modele->id}}">{{$Modele->nom_modele}}</option>
+                                          <option value="{{$Modele->id}}" {!! $Vehicule->modele_id==$Modele->id ?'selected="selected"':'' !!}>{{$Modele->nom_modele}}</option>
                                             @endforeach
                        </select>
                                             @error('modele_id')
@@ -43,7 +43,7 @@
                              <select name="categorie_id" id="" class="select2_single form-control" tabindex="-1" class="@error('categorie_id') is-invalid @enderror">
                                <option></option>
                                           @foreach($categories as $Categorie)
-                                                 <option value="{{$Categorie->id}}">{{$Categorie->nom_categorie}}</option>
+                                                 <option value="{{$Categorie->id}}" {!! $Vehicule->categorie_id==$Categorie->id ?'selected="selected"':'' !!}>{{$Categorie->nom_categorie}}</option>
                                                    @endforeach
                                         </select>
                                                    @error('categorie_id')

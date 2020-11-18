@@ -1,10 +1,10 @@
 
     $(document).ready(function(){
-    $('#modele_id').on('change',function(){
+    $('#marque_id').on('change',function(){
 
-var modele_id=$(this).val();
-$.get(route + '/vehicules/chargeMarque', {modele_id:modele_id},function(data){
-  $('#marque_id').html(data);
+var marque_id=$(this).val();
+$.get(route + '/vehicules/chargeMarque', {marque_id:marque_id},function(data){
+  $('#modele_id').html(data);
 });
 
 });
