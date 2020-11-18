@@ -28,7 +28,8 @@
                         <select name="marque_id" id="" class="select2_single form-control" tabindex="-1" class="@error('marque_id') is-invalid @enderror">
                           <option></option>
                                      @foreach($marques as $Marque)
-                                            <option value="{{$Marque->id}}">{{$Marque->nom_marque}}</option>
+                                            <option value="{{$Marque->id}}" {!! $Modele->marque_id==$Marque->id ?'selected="selected"':''  !!}>{{$Marque->nom_marque}}</option>
+
                                               @endforeach
                                    </select>
                                               @error('modele_id')

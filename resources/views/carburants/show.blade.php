@@ -4,11 +4,11 @@
   <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Liste des chauffeur</h2>
+        <h2>Liste des vehicules</h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
-          
+
           <li><a class="close-link"><i class="fa fa-close"></i></a>
           </li>
         </ul>
@@ -24,27 +24,25 @@
         <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
           <thead>
         <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Email</th>
-            <th>Telephone</th>
-            <th>ID du permis de conduire</th>
-
+          <th>ID</th>
+          <th>Type de mission</th>
+          <th>Fournisseur</th>
+          <th>Produit</th>
+          <th>Quantite</th>
+          <th>Prix</th>
         </tr>
         </thead>
 
 
           <tbody>
-        @foreach($chauffeurs as $Cfauffeur)
-        <tr>
-            <td>{{$Cfauffeur->id}}</td>
-            <td>{{$Cfauffeur->nom}}</td>
-            <td>{{$Cfauffeur->prenom}}</td>
-            <td>{{$Cfauffeur->email}}</td>
-            <td>{{$Cfauffeur->telephone}}</td>
-            <td>{{$Cfauffeur->id_permis_conduire}}</td>
-
+            @foreach($carburants as $Carburant)
+            <tr>
+                <td>{{$Carburant->id}}</td>
+                <td>{{$Carburant->type_mission}}</td>
+                <td>{{$Carburant->nom_societe}}</td>
+                <td>{{$Carburant->produit}}</td>
+                <td>{{$Carburant->quantite}}{{$Carburant->unite}}</td>
+                <td>{{$Carburant->prix_total}}{{$Carburant->monaie}}</td>
         </tr>
             @endforeach
 
