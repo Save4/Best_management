@@ -96,18 +96,12 @@ Route::put('fournisseurs/{Fournisseur}','FournisseursController@update');
 Route::post('fournisseurs/destroy/{Fournisseur}','FournisseursController@destroy');
 
 
-Route::get('reparations','ReparationsController@index');
-Route::get('reparations/create','ReparationsController@create');
-Route::post('reparations','ReparationsController@store');
-Route::get('reparations/edit/{Reparation}','ReparationsController@edit');
-Route::get('reparations/show/{Reparation}','ReparationsController@show');
-Route::put('reparations/{Reparation}','ReparationsController@update');
-Route::post('reparations/destroy/{Reparation}','ReparationsController@destroy');
 
-Route::get('autre_consommations','Autre_consommationsController@index');
-Route::get('autre_consommations/create','Autre_consommationsController@create');
-Route::post('autre_consommations','Autre_consommationsController@store');
-Route::get('autre_consommations/edit/{Autre_consommation}','Autre_consommationsController@edit');
-Route::get('autre_consommations/show/{Autre_consommation}','Autre_consommationsController@show');
-Route::put('autre_consommations/{Autre_consommation}','Autre_consommationsController@update');
-Route::post('autre_consommations/destroy/{Autre_consommation}','Autre_consommationsController@destroy');
+
+Route::get('carburants','CarburantsController@index');
+Route::get('carburants/create','CarburantsController@create');
+Route::post('carburants','CarburantsController@store');
+Route::get('carburants/edit/{Carburant}','CarburantsController@edit');
+Route::get('carburants/show/{Carburant}','CarburantsController@show');
+Route::put('carburants/{Carburant}','CarburantsController@update');
+Route::post('carburants/destroy/{Fournisseur}','FournisseursController@destroy');
