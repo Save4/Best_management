@@ -80,7 +80,7 @@ public function store(Request $request)
      $Autre_consommation->date_fin= $request->date_fin;
 
      $Autre_consommation->save();
-     return redirect('autre_consommation');
+     return redirect('autre_consommations');
 }
 
 public function edit(Autre_consommation $Autre_consommation)
