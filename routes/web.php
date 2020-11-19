@@ -128,3 +128,6 @@ Route::get('reparations/edit/{Reparation}','ReparationsController@edit');
 Route::get('reparations/show/{Reparation}','ReparationsController@show');
 Route::put('reparations/{Reparation}','ReparationsController@update');
 Route::post('reparations/destroy/{Reparation}','ReparationsController@destroy');
+
+
+Route::resource('admin/users','Admin\UsersController');
