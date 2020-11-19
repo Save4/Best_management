@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App;
@@ -10,11 +11,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -36,4 +32,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+
+    public function isAdmin()
+    {
+        return $this->roles()->where('role','DG')->first();
+    }
+
+    public function hasAnyRole(array $roles)
+    {
+        return $this->roles()->wherein('role',$roles)->first();
+    }
 }

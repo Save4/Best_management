@@ -20,8 +20,10 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                 @can ('manage-users')
+                                   <a class="dropdown-item" href="{{ route('admin.users.index') }}">Liste des utilisateurs</a>
+                                 @endcan
 
-                                    <a  class="dropdown-item" href="{{url('register')}}">Enregistre l'utilisateur</a>
                                 </div>
                             </li>
 

@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -128,3 +129,11 @@ Route::get('reparations/edit/{Reparation}','ReparationsController@edit');
 Route::get('reparations/show/{Reparation}','ReparationsController@show');
 Route::put('reparations/{Reparation}','ReparationsController@update');
 Route::post('reparations/destroy/{Reparation}','ReparationsController@destroy');
+
+
+//Route::resource('admin/users','Admin\UsersController');
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
+
+	Route::resource('users', 'UsersController');
+
+});

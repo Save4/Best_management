@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -46,7 +47,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                  <!--  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> -->
+                                <!--   <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>-->
                                 </li>
                             @endif
                         @else
@@ -65,6 +66,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                <a class="dropdown-item" href="{{ route('admin.users.index') }}">Liste des utilisateurs</a>
                                 </div>
                             </li>
                         @endguest
