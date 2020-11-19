@@ -8,7 +8,9 @@
                   </li>
                   <li><a><i class="fa fa-car"></i> Vehicule <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{url('modeles')}}">Marques et modeles</a></li>
+                      <li><a href="{{url('marques')}}">Marques</a></li>
+                      <li><a href="{{url('modeles')}}">Modeles</a></li>
+                      <li><a href="{{url('categories')}}">Categories</a></li>
                       <li><a href="{{url('vehicules')}}">Vehicules</a></li>
 
                     </ul>
@@ -16,14 +18,14 @@
                   <li><a><i class="fa fa-university"></i>Departement <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('departements')}}">Departements</a></li>
-                      <li><a href="{{url('departement_vehicules')}}">vehicule par departement</a></li>
+
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-users"></i>Chauffeur <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-users"></i>Mission <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('chauffeurs')}}">Chauffeurs</a></li>
-                      <li><a href="{{url('chauffeur_vehicules')}}">Chauffeur par vehicule</a></li>
+                      <li><a href="{{url('missions')}}">Mission</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -33,9 +35,10 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-edit"></i> Consommation <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="e{{url('type_consommations')}}">Type de Consommation</a></li>
-                      <li><a href="{{url('consommations')}}">Divers consommation</a></li>
-                      <li><a href="{{url('assurences')}}">Impot et assurence</a></li>
+                      <li><a href="{{url('fournisseurs')}}">Fournisseurs</a></li>
+                      <li><a href="{{url('reparations')}}">Reparation</a></li>
+                      <li><a href="{{url('carburants')}}">Carburant</a></li>
+                      <li><a href="{{url('autre_consommations')}}">Impot ou taxe ou assurence</a></li>
 
                     </ul>
                   </li>
