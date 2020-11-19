@@ -27,7 +27,7 @@
                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Vehicule :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="vehicule_id" id="marque_id" class="form-control">
-                          <option></option>
+                           <option value="0" disabled="true" selected="true">Selectionner le vehicule</option>
                         @foreach($vehicules as $Vehicule)
                         <option value="{{$Vehicule->id}}">{{$Vehicule->plaque}}</option>
                         @endforeach
@@ -48,7 +48,7 @@
                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Chauffeur :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="chauffeur_id" id="marque_id" class="form-control">
-                          <option></option>
+                           <option value="0" disabled="true" selected="true">Selectionner le chauffeur</option>
                         @foreach($chauffeurs as $Chauffeur)
                         <option value="{{$Chauffeur->id}}">{{$Chauffeur->nom}} {{$Chauffeur->prenom}}</option>
                         @endforeach
@@ -69,7 +69,7 @@
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Fournisseur :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="fournisseur_id" id="modele_id" class="select2_single form-control" tabindex="-1" class="@error('fournisseur_id') is-invalid @enderror">
-                        <option></option>
+                         <option value="0" disabled="true" selected="true">Selectionner le fournisseur</option>
                                  @foreach($fournisseurs as $Fournisseur)
                                           <option value="{{$Fournisseur->id}}">{{$Fournisseur->nom_societe}}</option>
                                             @endforeach
@@ -160,7 +160,7 @@
                         </div>
                       </div>
 
-                      
+
 
                       <div class="item form-group">
   											<div class="col-md-6 col-sm-6 offset-md-3">
@@ -181,6 +181,7 @@
   						</div>
 
 
+              <div class="row">
 
               <div class="col-md-12 col-sm-12 ">
                               <div class="x_panel">
@@ -258,6 +259,7 @@
               </div>
             </div>
           </div>
+        </div>
             </div>
 
 
