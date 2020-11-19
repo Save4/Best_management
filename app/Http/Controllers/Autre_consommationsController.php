@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Autre_consommation;
 use App\Vehicule;
+use App\Marque;
+use App\Modele;
+use App\Categorie;
 use App\Fournisseur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -104,15 +107,24 @@ public function edit(Autre_consommation $Autre_consommation)
   $autre_consommations= DB::table('autre_consommations')
          ->join('vehicules', 'autre_consommations.vehicule_id', 'vehicules.id')
          ->join('fournisseurs', 'autre_consommations.fournisseur_id', 'fournisseurs.id')
-         ->select('vehicules.*','fournisseurs.*','autre_consommations.*')
+         ->join('modeles', 'vehicules.modele_id', 'modeles.id')
+         ->join('categories', 'vehicules.categorie_id', 'categories.id')
+         ->join('marques', 'modeles.marque_id', 'marques.id')
+         ->select('marques.*','modeles.*','categories.*','vehicules.*','fournisseurs.*','autre_consommations.*')
          ->get();
          $vehicules = Vehicule::all();
+         $modeles = Modele::all();
+         $marques = Marque::all();
+         $categories = Categorie::all();
          $fournisseurs = Fournisseur::all();
 
 return view('autre_consommations/show',[
 
   'autre_consommations'=> $autre_consommations,
   'vehicules'=> $vehicules,
+  'modeles'=> $modeles,
+  'marques'=> $marques,
+  'categories'=> $categories,
   'fournisseurs'=>$fournisseurs
 ]);
 

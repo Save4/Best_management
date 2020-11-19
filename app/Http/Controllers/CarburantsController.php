@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Carburant;
 use App\Mission;
+use App\Vehicule;
+use App\Modele;
+use App\Marque;
 use App\Fournisseur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,15 +24,18 @@ class CarburantsController extends Controller
     $carburants= DB::table('carburants')
            ->join('missions', 'carburants.mission_id', 'missions.id')
            ->join('fournisseurs', 'carburants.fournisseur_id', 'fournisseurs.id')
-           ->select('missions.*','fournisseurs.*','carburants.*')
+           ->join('vehicules', 'missions.vehicule_id', 'vehicules.id')
+           ->select('vehicules.*','missions.*','fournisseurs.*','carburants.*')
            ->get();
            $missions = Mission::all();
+           $vehicules = Vehicule::all();
            $fournisseurs = Fournisseur::all();
 
   return view('carburants/index',[
 
     'carburants'=> $carburants,
     'missions'=> $missions,
+    'vehicules'=> $vehicules,
     'fournisseurs'=>$fournisseurs
   ]);
 
@@ -83,15 +89,24 @@ public function show()
 $carburants= DB::table('carburants')
        ->join('missions', 'carburants.mission_id', 'missions.id')
        ->join('fournisseurs', 'carburants.fournisseur_id', 'fournisseurs.id')
-       ->select('missions.*','fournisseurs.*','carburants.*')
+       ->join('vehicules', 'missions.vehicule_id', 'vehicules.id')
+       ->join('modeles', 'vehicules.modele_id', 'modeles.id')
+       ->join('marques', 'modeles.marque_id', 'marques.id')
+       ->select('marques.*','modeles.*','vehicules.*','missions.*','fournisseurs.*','carburants.*')
        ->get();
        $missions = Mission::all();
+       $vehicules = Vehicule::all();
+       $modeles = Modele::all();
+       $marques = Marque::all();
        $fournisseurs = Fournisseur::all();
 
 return view('carburants/show',[
 
 'carburants'=> $carburants,
 'missions'=> $missions,
+'vehicules'=> $vehicules,
+'marques'=> $marques,
+'modeles'=> $modeles,
 'fournisseurs'=>$fournisseurs
 ]);
 
