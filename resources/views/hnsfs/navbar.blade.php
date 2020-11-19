@@ -21,7 +21,7 @@
                                         @csrf
                                     </form>
 
-                                    <a  class="dropdown-item" href="{{url('register')}}">Enregistre l'utilisateur</a>
+                                      <a class="dropdown-item" href="{{ route('admin.users.index') }}">Liste des utilisateurs</a>
                                 </div>
                             </li>
 
