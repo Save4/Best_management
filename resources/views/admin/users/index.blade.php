@@ -5,7 +5,7 @@
 <div class="content-wrapper">
     <div class="row justify-content-center">
       <div class="card">
-        <div class="col-md-10">
+        <div class="col-md-12 col-sm-12">
             <div class="card">
                 <div class="card-header">
                  <h1 class="card-title"><strong>Liste des utilisateurs</strong></h1>
@@ -27,7 +27,7 @@
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{ implode(',', $user->roles()->get()->pluck('name')->toArray())}}</td>
+                    <td>{{ implode(',', $user->roles()->get()->pluck('role')->toArray())}}</td>
 
                     <td>
                        @can('edit-users')
