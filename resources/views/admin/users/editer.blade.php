@@ -39,8 +39,8 @@
                         </div>
                   @foreach($roles  as $role)
                      <div class="form-group form-check">
-                       <input type="checkbox" class="form-check-input" name="roles[]"v value="{{$role->id}}" id="{{$role->id}}" @if($user->roles->pluck('id')->contains($role->id)) @endif>
-                       <label for="{{$role->id}}" class="form-check-label">{{$role->name}}</label>
+                       <input type="checkbox" class="form-check-input" name="roles[]" value="{{$role->id}}" id="{{$role->id}}" @if($user->roles->pluck('id')->contains($role->id)) @endif>
+                       <label for="{{$role->id}}" class="form-check-label">{{$role->role}}</label>
                      </div>
                   @endforeach
                   <button type="submit" class="btn btn-primary">Modifier les informations </button>
@@ -51,3 +51,4 @@
     </div>
 </div>
 @endsection
+    
