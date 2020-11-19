@@ -25,11 +25,16 @@
           <thead>
         <tr>
           <th>ID</th>
+          <th>Marque</th>
+          <th>Modele</th>
+          <th>Vehicule</th>
           <th>Type de mission</th>
           <th>Fournisseur</th>
           <th>Produit</th>
           <th>Quantite</th>
           <th>Prix</th>
+          <th>Enrengistre</th>
+          <th>Modifier</th>
         </tr>
         </thead>
 
@@ -38,11 +43,17 @@
             @foreach($carburants as $Carburant)
             <tr>
                 <td>{{$Carburant->id}}</td>
+                <td>{{$Carburant->nom_marque}}</td>
+                <td>{{$Carburant->nom_modele}}</td>
+                <td>{{$Carburant->plaque}}</td>
                 <td>{{$Carburant->type_mission}}</td>
                 <td>{{$Carburant->nom_societe}}</td>
                 <td>{{$Carburant->produit}}</td>
                 <td>{{$Carburant->quantite}}{{$Carburant->unite}}</td>
                 <td>{{$Carburant->prix_total}}{{$Carburant->monaie}}</td>
+                <td>{{$Carburant->created_at}}</td>
+                <td>{{$Carburant->updated_at}}</td>
+
         </tr>
             @endforeach
 

@@ -27,7 +27,8 @@
                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Mission :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="mission_id" id="marque_id" class="form-control">
-                          <option></option>
+                        <option value="0" disabled="true" selected="true">Selectionner la mission</option>
+
                         @foreach($missions as $Mission)
                         <option value="{{$Mission->id}}">{{$Mission->type_mission}}</option>
                         @endforeach
@@ -47,7 +48,8 @@
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Fournisseur :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="fournisseur_id" id="modele_id" class="select2_single form-control" tabindex="-1" class="@error('fournisseur_id') is-invalid @enderror">
-                        <option></option>
+                        <option value="0" disabled="true" selected="true">Selectionner le fournisseur</option>
+
                                  @foreach($fournisseurs as $Fournisseur)
                                           <option value="{{$Fournisseur->id}}">{{$Fournisseur->nom_societe}}</option>
                                             @endforeach
@@ -144,6 +146,7 @@
   							</div>
   						</div>
 
+              <div class="row">
 
 
               <div class="col-md-12 col-sm-12 ">
@@ -169,6 +172,7 @@
                       <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Plaque</th>
                         <th>Type de mission</th>
                         <th>Fournisseur</th>
                         <th>Produit</th>
@@ -184,7 +188,8 @@
                       <tbody>
                     @foreach($carburants as $Carburant)
                     <tr>
-                        <td>{{$Carburant->id}}</td>
+                      <td>{{$Carburant->id}}</td>
+                        <td>{{$Carburant->plaque}}</td>
                         <td>{{$Carburant->type_mission}}</td>
                         <td>{{$Carburant->nom_societe}}</td>
                         <td>{{$Carburant->produit}}</td>
@@ -214,6 +219,7 @@
               </div>
             </div>
           </div>
+        </div>
             </div>
 
 
