@@ -22,7 +22,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //$users=User::all();
+        $users=User::all();
         return view('admin.users.index')->with('users',$users);
       //  return $this->indexSort('total');
     }
