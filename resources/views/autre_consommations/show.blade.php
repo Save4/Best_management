@@ -24,12 +24,16 @@
         <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
           <thead>
         <tr>
-          <th>ID</th>
+                        <th>ID</th>
+                        <th>Marque</th>
+                        <th>Modele</th>
+                        <th>Categorie</th>
                         <th>Plaque</th>
                         <th>Fournisseur</th>
                         <th>Type de consommation</th>
                         <th>Montant</th>
-                        <th>Date d'enregistrement</th>
+                        <th>Enregistrement</th>
+                        <th>Modification</th>
                         <th>Date de fin de validite</th>
         </tr>
         </thead>
@@ -39,13 +43,17 @@
             @foreach($autre_consommations as $Autre_consommation)
                     <tr>
                         <td>{{$Autre_consommation->id}}</td>
+                        <td>{{$Autre_consommation->nom_marque}}</td>
+                        <td>{{$Autre_consommation->nom_modele}}</td>
+                        <td>{{$Autre_consommation->nom_categorie}}</td>
                         <td>{{$Autre_consommation->plaque}}</td>
                         <td>{{$Autre_consommation->nom_societe}}</td>
                         <td>{{$Autre_consommation->type_consommation}}</td>
                         <td>{{$Autre_consommation->montant}}{{$Autre_consommation->monaie}}</td>
                         <td>{{$Autre_consommation->created_at}}</td>
+                        <td>{{$Autre_consommation->updated_at}}</td>
                         <td>{{$Autre_consommation->date_fin}}</td>
-                        
+
         </tr>
             @endforeach
 
