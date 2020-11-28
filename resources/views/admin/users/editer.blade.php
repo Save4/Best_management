@@ -1,6 +1,10 @@
 @extends('layouts.layout')
 @section('content')
 
+  @section('title','Login'.env('APP_NAME'))
+
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12 col-sm-12">
@@ -51,4 +55,3 @@
     </div>
 </div>
 @endsection
-    
