@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('content')
+  @section('title','Carburant | '.env('APP_NAME'))
+  
 
 
   <div class="clearfix"></div>
