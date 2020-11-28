@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('content')
+  @section('title','Login  |  '.env('APP_NAME'))
+
 
   @section('title','Login'.env('APP_NAME'))
 
