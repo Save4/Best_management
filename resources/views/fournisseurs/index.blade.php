@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 @section('content')
+  @section('title','Fournisseur | '.env('APP_NAME'))
 
 
   <div class="clearfix"></div>
