@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('content')
+  @section('title','Categorie | '.env('APP_NAME'))
+  
 
   <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
