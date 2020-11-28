@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-  @section('title','Impot , Taxe ou Assurence '.env('APP_NAME'))
+  @section('title','Impot , Taxe ou Assurence   |'.env('APP_NAME'))
 
 
   <div class="col-md-12 col-sm-12 ">
