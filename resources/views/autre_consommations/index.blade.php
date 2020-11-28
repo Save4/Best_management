@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('content')
+  @section('title','Impot , Taxe ou Assurence   |'.env('APP_NAME'))
+
 
 
   <div class="clearfix"></div>
@@ -27,7 +29,8 @@
                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Vehicule :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="vehicule_id" id="marque_id" class="form-control">
-                          <option></option>
+                        <option value="0" disabled="true" selected="true">Selectionner la plaque</option>
+
                         @foreach($vehicules as $Vehicule)
                         <option value="{{$Vehicule->id}}">{{$Vehicule->plaque}}</option>
                         @endforeach
@@ -47,7 +50,7 @@
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Fournisseur :</label>
                       <div class="col-md-6 col-sm-6 ">
                       <select name="fournisseur_id" id="modele_id" class="select2_single form-control" tabindex="-1" class="@error('fournisseur_id') is-invalid @enderror">
-                        <option></option>
+                        <option value="0" disabled="true" selected="true">Selectionner le fournisseur</option>
                                  @foreach($fournisseurs as $Fournisseur)
                                           <option value="{{$Fournisseur->id}}">{{$Fournisseur->nom_societe}}</option>
                                             @endforeach
