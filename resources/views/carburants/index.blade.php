@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 @section('content')
-  @section('title','Carburant | 'config('app.name'))
+
+  @section('title','Carburant | '.config('app.name'))
+
 
 
 
