@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
-  @section('title','Departement | '.env('APP_NAME'))
-  
+  @section('title','Departement | 'config('app.name'))
+
 
   <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
