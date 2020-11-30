@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 @section('content')
+  @section('title','Reparation | '    config('app.name'))
+
+
 
   <div class="clearfix"></div>
   					<div class="row">
@@ -43,7 +46,7 @@
                             </div>
                         </div>
 
-                            
+
                       <div class="form-group row">
                      <label class="col-form-label col-md-3 col-sm-3 label-align ">Chauffeur :</label>
                       <div class="col-md-6 col-sm-6 ">
@@ -66,7 +69,7 @@
                         </div>
 
 
-                       
+
                     <div class="form-group row">
                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Fournisseur :</label>
                       <div class="col-md-6 col-sm-6 ">
@@ -153,7 +156,7 @@
                         </div>
                       </div>
 
-                       
+
 
 
 
