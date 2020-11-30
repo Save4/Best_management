@@ -1,6 +1,9 @@
 @extends('layouts.layout')
 @section('content')
-  @section('title','Modele | '.env('APP_NAME'))
+
+  @section('title','Modele | '    config('app.name'))
+
+
 
 
   <div class="clearfix"></div>
