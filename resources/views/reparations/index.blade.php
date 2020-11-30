@@ -1,7 +1,13 @@
 @extends('layouts.layout')
 @section('content')
+<<<<<<< HEAD
   @section('title','Reparation | '.env('APP_NAME'))
   
+=======
+  @section('title','Reparation | '    config('app.name'))
+
+
+>>>>>>> reparation
 
 
   <div class="clearfix"></div>
