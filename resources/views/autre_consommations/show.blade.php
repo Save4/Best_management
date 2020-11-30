@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 @section('content')
-  @section('title','Impot , Taxe ou Assurence   |' config('app.name'))
+
+  @section('title','Impot , Taxe ou Assurence   |' .config('app.name'))
+
 
 
   <div class="col-md-12 col-sm-12 ">
