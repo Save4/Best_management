@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-  @section('title','Impot , Taxe ou Assurence   |'.env('APP_NAME'))
+  @section('title','Impot , Taxe ou Assurence   |' config('app.name'))
 
 
 
