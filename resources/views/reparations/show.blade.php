@@ -1,6 +1,11 @@
 @extends('layouts.layout')
 @section('content')
 
+  @section('title','Reparation | '    config('app.name'))
+
+
+
+
   <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
       <div class="x_title">
@@ -51,7 +56,7 @@
                         <td>{{$Reparation->prix_total}}{{$Reparation->monaie}}</td>
                         <td>{{$Reparation->montant_total}}{{$Reparation->monaie}}</td>
                         <td>{{$Reparation->created_at}}</td>
-                        
+
         </tr>
             @endforeach
 

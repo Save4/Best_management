@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('content')
+  @section('title','Mission | 'config('app.name'))
+
 
   <div class="clearfix"></div>
   					<div class="row">

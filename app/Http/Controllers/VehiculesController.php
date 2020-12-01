@@ -56,12 +56,11 @@ public function create()
 
 public function store(Request $request)
 {
-
      //validation
      $request->validate([
          'modele_id' =>'required',
          'categorie_id' =>'required',
-         'plaque'=>'required',
+         'plaque'=>['required', 'unique:vehicules'],
          'boite_vitesse' =>'required',
          'type_moteur' =>'required',
          'nombre_place' =>'required'

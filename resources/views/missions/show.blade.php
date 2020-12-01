@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('content')
+  @section('title','Mission | 'config('app.name'))
+
   <div class="row">
 
   <div class="col-md-12 col-sm-12 ">

@@ -1,6 +1,11 @@
 @extends('layouts.layout')
 @section('content')
 
+@section('title','Login | 'config('app.name'))
+
+
+
+
 
 <div class="content-wrapper">
     <div class="row justify-content-center">
